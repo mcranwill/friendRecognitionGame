@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4A16C2E8360020452A /* UIKit.framework */; };
+		F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4C16C2E8360020452A /* Foundation.framework */; };
+		F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4E16C2E8360020452A /* CoreGraphics.framework */; };
+		F3B30C5516C2E8360020452A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3B30C5316C2E8360020452A /* InfoPlist.strings */; };
+		F3B30C5716C2E8360020452A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30C5616C2E8360020452A /* main.m */; };
+		F3B30C5B16C2E8360020452A /* FriendRecognitionGameAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30C5A16C2E8360020452A /* FriendRecognitionGameAppDelegate.m */; };
+		F3B30C5D16C2E8360020452A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B30C5C16C2E8360020452A /* Default.png */; };
+		F3B30C5F16C2E8360020452A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B30C5E16C2E8360020452A /* Default@2x.png */; };
+		F3B30C6116C2E8360020452A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B30C6016C2E8360020452A /* Default-568h@2x.png */; };
+		F3B30C6416C2E8360020452A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */; };
+		F3B30C6716C2E8360020452A /* FriendRecognitionGameMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30C6616C2E8360020452A /* FriendRecognitionGameMasterViewController.m */; };
+		F3B30C6A16C2E8360020452A /* FriendRecognitionGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F3B30C4616C2E8360020452A /* friendRecognitionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = friendRecognitionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3B30C4A16C2E8360020452A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F3B30C4C16C2E8360020452A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F3B30C4E16C2E8360020452A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F3B30C5216C2E8360020452A /* friendRecognitionGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "friendRecognitionGame-Info.plist"; sourceTree = "<group>"; };
+		F3B30C5416C2E8360020452A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F3B30C5616C2E8360020452A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F3B30C5816C2E8360020452A /* friendRecognitionGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "friendRecognitionGame-Prefix.pch"; sourceTree = "<group>"; };
+		F3B30C5916C2E8360020452A /* FriendRecognitionGameAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRecognitionGameAppDelegate.h; sourceTree = "<group>"; };
+		F3B30C5A16C2E8360020452A /* FriendRecognitionGameAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRecognitionGameAppDelegate.m; sourceTree = "<group>"; };
+		F3B30C5C16C2E8360020452A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F3B30C5E16C2E8360020452A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F3B30C6016C2E8360020452A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F3B30C6316C2E8360020452A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F3B30C6516C2E8360020452A /* FriendRecognitionGameMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRecognitionGameMasterViewController.h; sourceTree = "<group>"; };
+		F3B30C6616C2E8360020452A /* FriendRecognitionGameMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRecognitionGameMasterViewController.m; sourceTree = "<group>"; };
+		F3B30C6816C2E8360020452A /* FriendRecognitionGameDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRecognitionGameDetailViewController.h; sourceTree = "<group>"; };
+		F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRecognitionGameDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3B30C4316C2E8360020452A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */,
+				F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */,
+				F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F3B30C3B16C2E8360020452A = {
+			isa = PBXGroup;
+			children = (
+				F3B30C5016C2E8360020452A /* friendRecognitionGame */,
+				F3B30C4916C2E8360020452A /* Frameworks */,
+				F3B30C4716C2E8360020452A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3B30C4716C2E8360020452A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3B30C4616C2E8360020452A /* friendRecognitionGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3B30C4916C2E8360020452A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3B30C4A16C2E8360020452A /* UIKit.framework */,
+				F3B30C4C16C2E8360020452A /* Foundation.framework */,
+				F3B30C4E16C2E8360020452A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3B30C5016C2E8360020452A /* friendRecognitionGame */ = {
+			isa = PBXGroup;
+			children = (
+				F3B30C5916C2E8360020452A /* FriendRecognitionGameAppDelegate.h */,
+				F3B30C5A16C2E8360020452A /* FriendRecognitionGameAppDelegate.m */,
+				F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */,
+				F3B30C6516C2E8360020452A /* FriendRecognitionGameMasterViewController.h */,
+				F3B30C6616C2E8360020452A /* FriendRecognitionGameMasterViewController.m */,
+				F3B30C6816C2E8360020452A /* FriendRecognitionGameDetailViewController.h */,
+				F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */,
+				F3B30C5116C2E8360020452A /* Supporting Files */,
+			);
+			path = friendRecognitionGame;
+			sourceTree = "<group>";
+		};
+		F3B30C5116C2E8360020452A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F3B30C5216C2E8360020452A /* friendRecognitionGame-Info.plist */,
+				F3B30C5316C2E8360020452A /* InfoPlist.strings */,
+				F3B30C5616C2E8360020452A /* main.m */,
+				F3B30C5816C2E8360020452A /* friendRecognitionGame-Prefix.pch */,
+				F3B30C5C16C2E8360020452A /* Default.png */,
+				F3B30C5E16C2E8360020452A /* Default@2x.png */,
+				F3B30C6016C2E8360020452A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3B30C4516C2E8360020452A /* friendRecognitionGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3B30C6D16C2E8360020452A /* Build configuration list for PBXNativeTarget "friendRecognitionGame" */;
+			buildPhases = (
+				F3B30C4216C2E8360020452A /* Sources */,
+				F3B30C4316C2E8360020452A /* Frameworks */,
+				F3B30C4416C2E8360020452A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = friendRecognitionGame;
+			productName = friendRecognitionGame;
+			productReference = F3B30C4616C2E8360020452A /* friendRecognitionGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3B30C3D16C2E8360020452A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FriendRecognitionGame;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Self;
+			};
+			buildConfigurationList = F3B30C4016C2E8360020452A /* Build configuration list for PBXProject "friendRecognitionGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F3B30C3B16C2E8360020452A;
+			productRefGroup = F3B30C4716C2E8360020452A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3B30C4516C2E8360020452A /* friendRecognitionGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3B30C4416C2E8360020452A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B30C5516C2E8360020452A /* InfoPlist.strings in Resources */,
+				F3B30C5D16C2E8360020452A /* Default.png in Resources */,
+				F3B30C5F16C2E8360020452A /* Default@2x.png in Resources */,
+				F3B30C6116C2E8360020452A /* Default-568h@2x.png in Resources */,
+				F3B30C6416C2E8360020452A /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3B30C4216C2E8360020452A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B30C5716C2E8360020452A /* main.m in Sources */,
+				F3B30C5B16C2E8360020452A /* FriendRecognitionGameAppDelegate.m in Sources */,
+				F3B30C6716C2E8360020452A /* FriendRecognitionGameMasterViewController.m in Sources */,
+				F3B30C6A16C2E8360020452A /* FriendRecognitionGameDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F3B30C5316C2E8360020452A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3B30C5416C2E8360020452A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3B30C6316C2E8360020452A /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F3B30C6B16C2E8360020452A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F3B30C6C16C2E8360020452A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F3B30C6E16C2E8360020452A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "friendRecognitionGame/friendRecognitionGame-Prefix.pch";
+				INFOPLIST_FILE = "friendRecognitionGame/friendRecognitionGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F3B30C6F16C2E8360020452A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "friendRecognitionGame/friendRecognitionGame-Prefix.pch";
+				INFOPLIST_FILE = "friendRecognitionGame/friendRecognitionGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3B30C4016C2E8360020452A /* Build configuration list for PBXProject "friendRecognitionGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3B30C6B16C2E8360020452A /* Debug */,
+				F3B30C6C16C2E8360020452A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3B30C6D16C2E8360020452A /* Build configuration list for PBXNativeTarget "friendRecognitionGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3B30C6E16C2E8360020452A /* Debug */,
+				F3B30C6F16C2E8360020452A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3B30C3D16C2E8360020452A /* Project object */;
+}
