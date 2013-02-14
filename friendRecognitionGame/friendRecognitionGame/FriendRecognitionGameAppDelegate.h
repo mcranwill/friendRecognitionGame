@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "FriendRecognitionGameMasterViewController.h"
 
 @interface FriendRecognitionGameAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+-(void) openSession;
 
 @end

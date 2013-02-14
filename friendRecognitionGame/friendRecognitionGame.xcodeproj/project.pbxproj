@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F34181FC16CD58DF00CDEFA0 /* FRGLoginViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = F34181FA16CD58DF00CDEFA0 /* FRGLoginViewController2.m */; };
+		F34181FD16CD58DF00CDEFA0 /* FRGLoginViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F34181FB16CD58DF00CDEFA0 /* FRGLoginViewController2.xib */; };
+		F341820116CD5B9E00CDEFA0 /* FRGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34181FF16CD5B9E00CDEFA0 /* FRGViewController.m */; };
+		F341820216CD5B9E00CDEFA0 /* FRGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F341820016CD5B9E00CDEFA0 /* FRGViewController.xib */; };
 		F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4A16C2E8360020452A /* UIKit.framework */; };
 		F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4C16C2E8360020452A /* Foundation.framework */; };
 		F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4E16C2E8360020452A /* CoreGraphics.framework */; };
@@ -19,9 +23,21 @@
 		F3B30C6416C2E8360020452A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */; };
 		F3B30C6716C2E8360020452A /* FriendRecognitionGameMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30C6616C2E8360020452A /* FriendRecognitionGameMasterViewController.m */; };
 		F3B30C6A16C2E8360020452A /* FriendRecognitionGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */; };
+		F3CDEC0816CAB0FE00934E00 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0716CAB0FE00934E00 /* FacebookSDK.framework */; };
+		F3CDEC0B16CAB15600934E00 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CDEC0916CAB15600934E00 /* FacebookSDKResources.bundle */; };
+		F3CDEC0C16CAB15600934E00 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CDEC0A16CAB15600934E00 /* FBUserSettingsViewResources.bundle */; };
+		F3CDEC1016CAB1A900934E00 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0D16CAB1A900934E00 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F3CDEC1116CAB1A900934E00 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0E16CAB1A900934E00 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F3CDEC1216CAB1A900934E00 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0F16CAB1A900934E00 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F34181F916CD58DF00CDEFA0 /* FRGLoginViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGLoginViewController2.h; sourceTree = "<group>"; };
+		F34181FA16CD58DF00CDEFA0 /* FRGLoginViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGLoginViewController2.m; sourceTree = "<group>"; };
+		F34181FB16CD58DF00CDEFA0 /* FRGLoginViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRGLoginViewController2.xib; sourceTree = "<group>"; };
+		F34181FE16CD5B9E00CDEFA0 /* FRGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGViewController.h; sourceTree = "<group>"; };
+		F34181FF16CD5B9E00CDEFA0 /* FRGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGViewController.m; sourceTree = "<group>"; };
+		F341820016CD5B9E00CDEFA0 /* FRGViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRGViewController.xib; sourceTree = "<group>"; };
 		F3B30C4616C2E8360020452A /* friendRecognitionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = friendRecognitionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B30C4A16C2E8360020452A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3B30C4C16C2E8360020452A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,6 +56,12 @@
 		F3B30C6616C2E8360020452A /* FriendRecognitionGameMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRecognitionGameMasterViewController.m; sourceTree = "<group>"; };
 		F3B30C6816C2E8360020452A /* FriendRecognitionGameDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendRecognitionGameDetailViewController.h; sourceTree = "<group>"; };
 		F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendRecognitionGameDetailViewController.m; sourceTree = "<group>"; };
+		F3CDEC0716CAB0FE00934E00 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		F3CDEC0916CAB15600934E00 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		F3CDEC0A16CAB15600934E00 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		F3CDEC0D16CAB1A900934E00 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		F3CDEC0E16CAB1A900934E00 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		F3CDEC0F16CAB1A900934E00 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +69,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3CDEC1016CAB1A900934E00 /* Accounts.framework in Frameworks */,
+				F3CDEC1116CAB1A900934E00 /* AdSupport.framework in Frameworks */,
+				F3CDEC1216CAB1A900934E00 /* Social.framework in Frameworks */,
 				F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */,
 				F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */,
 				F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */,
+				F3CDEC0816CAB0FE00934E00 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +102,12 @@
 		F3B30C4916C2E8360020452A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3CDEC0D16CAB1A900934E00 /* Accounts.framework */,
+				F3CDEC0E16CAB1A900934E00 /* AdSupport.framework */,
+				F3CDEC0F16CAB1A900934E00 /* Social.framework */,
+				F3CDEC0916CAB15600934E00 /* FacebookSDKResources.bundle */,
+				F3CDEC0A16CAB15600934E00 /* FBUserSettingsViewResources.bundle */,
+				F3CDEC0716CAB0FE00934E00 /* FacebookSDK.framework */,
 				F3B30C4A16C2E8360020452A /* UIKit.framework */,
 				F3B30C4C16C2E8360020452A /* Foundation.framework */,
 				F3B30C4E16C2E8360020452A /* CoreGraphics.framework */,
@@ -94,6 +126,12 @@
 				F3B30C6816C2E8360020452A /* FriendRecognitionGameDetailViewController.h */,
 				F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */,
 				F3B30C5116C2E8360020452A /* Supporting Files */,
+				F34181F916CD58DF00CDEFA0 /* FRGLoginViewController2.h */,
+				F34181FA16CD58DF00CDEFA0 /* FRGLoginViewController2.m */,
+				F34181FB16CD58DF00CDEFA0 /* FRGLoginViewController2.xib */,
+				F34181FE16CD5B9E00CDEFA0 /* FRGViewController.h */,
+				F34181FF16CD5B9E00CDEFA0 /* FRGViewController.m */,
+				F341820016CD5B9E00CDEFA0 /* FRGViewController.xib */,
 			);
 			path = friendRecognitionGame;
 			sourceTree = "<group>";
@@ -169,6 +207,10 @@
 				F3B30C5F16C2E8360020452A /* Default@2x.png in Resources */,
 				F3B30C6116C2E8360020452A /* Default-568h@2x.png in Resources */,
 				F3B30C6416C2E8360020452A /* MainStoryboard.storyboard in Resources */,
+				F3CDEC0B16CAB15600934E00 /* FacebookSDKResources.bundle in Resources */,
+				F3CDEC0C16CAB15600934E00 /* FBUserSettingsViewResources.bundle in Resources */,
+				F34181FD16CD58DF00CDEFA0 /* FRGLoginViewController2.xib in Resources */,
+				F341820216CD5B9E00CDEFA0 /* FRGViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +225,8 @@
 				F3B30C5B16C2E8360020452A /* FriendRecognitionGameAppDelegate.m in Sources */,
 				F3B30C6716C2E8360020452A /* FriendRecognitionGameMasterViewController.m in Sources */,
 				F3B30C6A16C2E8360020452A /* FriendRecognitionGameDetailViewController.m in Sources */,
+				F34181FC16CD58DF00CDEFA0 /* FRGLoginViewController2.m in Sources */,
+				F341820116CD5B9E00CDEFA0 /* FRGViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +305,14 @@
 		F3B30C6E16C2E8360020452A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "friendRecognitionGame/friendRecognitionGame-Prefix.pch";
 				INFOPLIST_FILE = "friendRecognitionGame/friendRecognitionGame-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -272,9 +321,14 @@
 		F3B30C6F16C2E8360020452A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "friendRecognitionGame/friendRecognitionGame-Prefix.pch";
 				INFOPLIST_FILE = "friendRecognitionGame/friendRecognitionGame-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -299,6 +353,7 @@
 				F3B30C6F16C2E8360020452A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,15 +7,131 @@
 //
 
 #import "FriendRecognitionGameAppDelegate.h"
+#import "FRGLoginViewController2.h"
+#import "FRGLoginViewController.h"
+#import "FRGViewController.h"
+
+@interface FriendRecognitionGameAppDelegate ()
+
+@property (strong, nonatomic) UINavigationController* navController;
+@property (strong, nonatomic) FRGViewController* mainViewController;
+
+@end
 
 @implementation FriendRecognitionGameAppDelegate
 
+@synthesize navController = _navController;
+@synthesize mainViewController = _mainViewController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //All of this needs to go in the 
+    
+    
     // Override point for customization after application launch.
+    self.mainViewController = [[FRGViewController alloc] initWithNibName:@"FRGViewController" bundle:nil];
+    // NSLog(self.mainViewController);
+    self.navController = [[UINavigationController alloc]
+                          initWithRootViewController:self.mainViewController];
+    self.window.rootViewController = self.navController;
+    [self.window makeKeyAndVisible];
+    //NSLog(self.mainViewController);
+    //See if we have a valid token for the current state.
+    
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){
+        //to do, sho logged in view
+        [self openSession];
+    }else{
+        //no display the login page.
+        [self showLoginView];
+    }
     return YES;
 }
-							
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+- (void) showLoginView {
+   /* UIViewController *topViewController = [self.navController topViewController];
+    
+    FRGLoginViewController* loginViewController = [[FRGLoginViewController alloc] initWithNibName:@"FRGLoginViewController2" bundle:nil];
+    [topViewController presentModalViewController:loginViewController animated:NO ];*/
+    
+    UIViewController *topViewController = [self.navController topViewController];
+    UIViewController *modalViewController = [topViewController modalViewController];
+    
+    // If the login screen is not already displayed, display it. If the login screen is
+    // displayed, then getting back here means the login in progress did not successfully
+    // complete. In that case, notify the login view so it can update its UI appropriately.
+    if (![modalViewController isKindOfClass:[FRGLoginViewController2 class]]) {
+        FRGLoginViewController2* loginViewController = [[FRGLoginViewController2 alloc]
+                                                      initWithNibName:@"FRGLoginViewController2"
+                                                      bundle:nil];
+        [topViewController presentModalViewController:loginViewController animated:NO];
+    } else {
+        FRGLoginViewController2* loginViewController =
+        (FRGLoginViewController2*)modalViewController;
+        [loginViewController loginFailed];
+    }
+
+}
+
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen: {
+            UIViewController *topViewController =
+            [self.navController topViewController];
+            if ([[topViewController modalViewController]
+                 isKindOfClass:[FRGViewController class]]) {
+                [topViewController dismissModalViewControllerAnimated:YES];
+            }
+        }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            // Once the user has logged in, we want them to
+            // be looking at the root view.
+            [self.navController popToRootViewControllerAnimated:NO];
+            
+            [FBSession.activeSession closeAndClearTokenInformation];
+            
+            [self showLoginView];
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (void)openSession
+{
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self sessionStateChanged:session state:state error:error];
+     }];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -36,6 +152,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // We need to properly handle activation of the application with regards to Facebook Login
+    // (e.g., returning from iOS 6.0 Login Dialog or from fast app switching).
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
