@@ -10,7 +10,7 @@
 
 
 @interface FRGLoginViewController2 : UIViewController
-- (IBAction)performLogin:(id)sender;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 - (void)loginFailed;
+
 @end

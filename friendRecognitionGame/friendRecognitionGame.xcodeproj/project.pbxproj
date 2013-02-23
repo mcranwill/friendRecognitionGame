@@ -11,6 +11,9 @@
 		F34181FD16CD58DF00CDEFA0 /* FRGLoginViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F34181FB16CD58DF00CDEFA0 /* FRGLoginViewController2.xib */; };
 		F341820116CD5B9E00CDEFA0 /* FRGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34181FF16CD5B9E00CDEFA0 /* FRGViewController.m */; };
 		F341820216CD5B9E00CDEFA0 /* FRGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F341820016CD5B9E00CDEFA0 /* FRGViewController.xib */; };
+		F346A26B16D3F7350079A959 /* FRGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F346A26A16D3F7350079A959 /* FRGLoginViewController.m */; };
+		F35461FB16D6919F00CEB191 /* FBDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35461FA16D6919F00CEB191 /* FBDataController.m */; };
+		F35461FF16D6945400CEB191 /* FRGLoggedInBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35461FE16D6945400CEB191 /* FRGLoggedInBaseViewController.m */; };
 		F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4A16C2E8360020452A /* UIKit.framework */; };
 		F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4C16C2E8360020452A /* Foundation.framework */; };
 		F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4E16C2E8360020452A /* CoreGraphics.framework */; };
@@ -38,6 +41,12 @@
 		F34181FE16CD5B9E00CDEFA0 /* FRGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGViewController.h; sourceTree = "<group>"; };
 		F34181FF16CD5B9E00CDEFA0 /* FRGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGViewController.m; sourceTree = "<group>"; };
 		F341820016CD5B9E00CDEFA0 /* FRGViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRGViewController.xib; sourceTree = "<group>"; };
+		F346A26916D3F7350079A959 /* FRGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGLoginViewController.h; sourceTree = "<group>"; };
+		F346A26A16D3F7350079A959 /* FRGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGLoginViewController.m; sourceTree = "<group>"; };
+		F35461F916D6919F00CEB191 /* FBDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDataController.h; sourceTree = "<group>"; };
+		F35461FA16D6919F00CEB191 /* FBDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDataController.m; sourceTree = "<group>"; };
+		F35461FD16D6945400CEB191 /* FRGLoggedInBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGLoggedInBaseViewController.h; sourceTree = "<group>"; };
+		F35461FE16D6945400CEB191 /* FRGLoggedInBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGLoggedInBaseViewController.m; sourceTree = "<group>"; };
 		F3B30C4616C2E8360020452A /* friendRecognitionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = friendRecognitionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B30C4A16C2E8360020452A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3B30C4C16C2E8360020452A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,13 +127,19 @@
 		F3B30C5016C2E8360020452A /* friendRecognitionGame */ = {
 			isa = PBXGroup;
 			children = (
+				F346A26916D3F7350079A959 /* FRGLoginViewController.h */,
+				F346A26A16D3F7350079A959 /* FRGLoginViewController.m */,
 				F3B30C5916C2E8360020452A /* FriendRecognitionGameAppDelegate.h */,
 				F3B30C5A16C2E8360020452A /* FriendRecognitionGameAppDelegate.m */,
 				F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */,
+				F35461F916D6919F00CEB191 /* FBDataController.h */,
+				F35461FA16D6919F00CEB191 /* FBDataController.m */,
 				F3B30C6516C2E8360020452A /* FriendRecognitionGameMasterViewController.h */,
 				F3B30C6616C2E8360020452A /* FriendRecognitionGameMasterViewController.m */,
 				F3B30C6816C2E8360020452A /* FriendRecognitionGameDetailViewController.h */,
 				F3B30C6916C2E8360020452A /* FriendRecognitionGameDetailViewController.m */,
+				F35461FD16D6945400CEB191 /* FRGLoggedInBaseViewController.h */,
+				F35461FE16D6945400CEB191 /* FRGLoggedInBaseViewController.m */,
 				F3B30C5116C2E8360020452A /* Supporting Files */,
 				F34181F916CD58DF00CDEFA0 /* FRGLoginViewController2.h */,
 				F34181FA16CD58DF00CDEFA0 /* FRGLoginViewController2.m */,
@@ -227,6 +242,9 @@
 				F3B30C6A16C2E8360020452A /* FriendRecognitionGameDetailViewController.m in Sources */,
 				F34181FC16CD58DF00CDEFA0 /* FRGLoginViewController2.m in Sources */,
 				F341820116CD5B9E00CDEFA0 /* FRGViewController.m in Sources */,
+				F346A26B16D3F7350079A959 /* FRGLoginViewController.m in Sources */,
+				F35461FB16D6919F00CEB191 /* FBDataController.m in Sources */,
+				F35461FF16D6945400CEB191 /* FRGLoggedInBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

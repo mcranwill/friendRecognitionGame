@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3wk-72-kEu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -17,12 +17,124 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-77" y="-588"/>
+        </scene>
+        <!--Login View Controller - Login Controller-->
+        <scene sceneID="je8-SJ-Hoy">
+            <objects>
+                <viewController storyboardIdentifier="frloginviewcontroller" title="Login Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3wk-72-kEu" customClass="FRGLoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q7z-3f-H5H">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To get started, login with Facebok" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Uf0-3K-ZeT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="C57-Ha-UV3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.99112569049999999" blue="0.99023417319999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15c-O2-cOd">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="Hix-em-hR4"/>
+                                    <constraint firstAttribute="height" constant="39" id="YCJ-0w-Sbv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="performLogin:" destination="3wk-72-kEu" eventType="touchUpInside" id="syk-7o-by4"/>
+                                    <segue destination="dAS-XN-wBX" kind="modal" id="CRz-1c-yqF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook Recognition Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLA-bX-nqw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="LK7-Ex-hyx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.99112569049999999" blue="0.99023417319999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="1" green="0.99112569049999999" blue="0.99023417319999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cAX-i8-00k"/>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29759096530000001" green="0.37097897019999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cAX-i8-00k" secondAttribute="bottom" constant="87" id="6Y8-NR-Ees"/>
+                            <constraint firstItem="YLA-bX-nqw" firstAttribute="top" secondItem="q7z-3f-H5H" secondAttribute="top" constant="48" id="9mM-Ai-oVU"/>
+                            <constraint firstAttribute="trailing" secondItem="Uf0-3K-ZeT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Bxb-x1-RhN"/>
+                            <constraint firstAttribute="trailing" secondItem="YLA-bX-nqw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ILI-NA-cpe"/>
+                            <constraint firstItem="15c-O2-cOd" firstAttribute="centerX" secondItem="Uf0-3K-ZeT" secondAttribute="centerX" type="default" id="KpG-NC-LSa"/>
+                            <constraint firstItem="Uf0-3K-ZeT" firstAttribute="top" secondItem="q7z-3f-H5H" secondAttribute="top" constant="184" id="Y2g-qD-etY"/>
+                            <constraint firstItem="YLA-bX-nqw" firstAttribute="leading" secondItem="q7z-3f-H5H" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Yxe-RQ-8ZC"/>
+                            <constraint firstItem="cAX-i8-00k" firstAttribute="centerX" secondItem="15c-O2-cOd" secondAttribute="centerX" type="default" id="bz0-QS-4Uq"/>
+                            <constraint firstAttribute="bottom" secondItem="15c-O2-cOd" secondAttribute="bottom" constant="169" id="yMT-Tr-2EC"/>
+                            <constraint firstItem="Uf0-3K-ZeT" firstAttribute="leading" secondItem="q7z-3f-H5H" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zDR-Gc-CzO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="chq-kM-rhX"/>
+                    <connections>
+                        <outlet property="spinner" destination="cAX-i8-00k" id="VGH-l9-V7z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1i-sq-HZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-447" y="330"/>
+        </scene>
+        <!--Logged In Base View Controller-->
+        <scene sceneID="GzD-wq-j0u">
+            <objects>
+                <viewController id="dAS-XN-wBX" customClass="FRGLoggedInBaseViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J9L-D3-ceY">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rm-F5-vLb">
+                                <items>
+                                    <barButtonItem title="Logout" width="95" id="bhp-mf-d7Q">
+                                        <connections>
+                                            <action selector="performLogout:" destination="dAS-XN-wBX" id="aCG-oa-Uz2"/>
+                                            <segue destination="3wk-72-kEu" kind="modal" id="t90-4w-okK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-B0-Cb3">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="242" id="9wI-sw-dJg"/>
+                                    <constraint firstAttribute="height" constant="236" id="OoA-Ea-bcy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29759096530000001" green="0.37097897019999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MI6-B0-Cb3" firstAttribute="top" secondItem="J9L-D3-ceY" secondAttribute="top" constant="150" id="GWL-Cf-65S"/>
+                            <constraint firstItem="1Rm-F5-vLb" firstAttribute="leading" secondItem="J9L-D3-ceY" secondAttribute="leading" type="default" id="aP4-uF-MOo"/>
+                            <constraint firstItem="1Rm-F5-vLb" firstAttribute="trailing" secondItem="J9L-D3-ceY" secondAttribute="trailing" type="default" id="aa1-Id-zLL"/>
+                            <constraint firstItem="MI6-B0-Cb3" firstAttribute="leading" secondItem="J9L-D3-ceY" secondAttribute="leading" constant="40" id="ra8-uQ-Snf"/>
+                            <constraint firstItem="1Rm-F5-vLb" firstAttribute="top" secondItem="J9L-D3-ceY" secondAttribute="top" constant="-5" id="y2Q-1j-oHK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userInfoTextView" destination="MI6-B0-Cb3" id="Vay-ec-Aa7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRG-Cr-C95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192" y="271"/>
         </scene>
         <!--Friend Recognition Game Master View Controller - Master-->
         <scene sceneID="18">
             <objects>
-                <tableViewController restorationIdentifier="FriendRecognitionGameMasterViewController" storyboardIdentifier="FriendRecognitionGameMasterViewController" title="Master" id="12" customClass="FriendRecognitionGameMasterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FriendRecognitionGameMasterViewController" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" id="12" customClass="FriendRecognitionGameMasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="441" y="-558"/>
         </scene>
         <!--Friend Recognition Game Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -92,10 +204,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="904" y="-558"/>
         </scene>
     </scenes>
     <classes>
+        <class className="FRGLoggedInBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FRGLoggedInBaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogout:"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userInfoTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="FRGLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FRGLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
         <class className="FriendRecognitionGameDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendRecognitionGameDetailViewController.h"/>
             <relationships>

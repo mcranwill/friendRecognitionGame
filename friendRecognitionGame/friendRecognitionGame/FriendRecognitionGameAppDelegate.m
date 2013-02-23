@@ -9,39 +9,37 @@
 #import "FriendRecognitionGameAppDelegate.h"
 #import "FRGLoginViewController2.h"
 #import "FRGLoginViewController.h"
-#import "FRGViewController.h"
+#import "FRGLoggedInBaseViewController.h"
 
 @interface FriendRecognitionGameAppDelegate ()
 
-@property (strong, nonatomic) UINavigationController* navController;
-@property (strong, nonatomic) FRGViewController* mainViewController;
+//@property (strong, nonatomic) UINavigationController* navController;
+-(void) showLoginView;
 
 @end
 
 @implementation FriendRecognitionGameAppDelegate
 
-@synthesize navController = _navController;
-@synthesize mainViewController = _mainViewController;
+NSString *const FBSessionStateChangedNotification =
+@"com.example.Login:FBSessionStateChangedNotification";
+@synthesize loginController = _loginController;
+@synthesize loggedInController = _loggedInController;
+//@synthesize mainViewController = _mainViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    //All of this needs to go in the 
-    
-    
-    // Override point for customization after application launch.
-    self.mainViewController = [[FRGViewController alloc] initWithNibName:@"FRGViewController" bundle:nil];
-    // NSLog(self.mainViewController);
-    self.navController = [[UINavigationController alloc]
+    //self.loginController = [[FRGLoginViewController alloc] i]; // Override point for customization after application launch.
+    /*self.navController = [[UINavigationController alloc]
                           initWithRootViewController:self.mainViewController];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
-    //NSLog(self.mainViewController);
-    //See if we have a valid token for the current state.
+    */
+    //self.loginController = [[FRGLoginViewController alloc] i
     
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){
-        //to do, sho logged in view
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){ //See if we have a valid token for the current state.
+        //show logged in view
         [self openSession];
+        NSLog(@"Made it here");
     }else{
         //no display the login page.
         [self showLoginView];
@@ -63,20 +61,18 @@
     FRGLoginViewController* loginViewController = [[FRGLoginViewController alloc] initWithNibName:@"FRGLoginViewController2" bundle:nil];
     [topViewController presentModalViewController:loginViewController animated:NO ];*/
     
-    UIViewController *topViewController = [self.navController topViewController];
-    UIViewController *modalViewController = [topViewController modalViewController];
-    
+    UIViewController *topViewController = self.window.rootViewController;
+    //UIViewController *modalViewController = [topViewController modalViewController];
     // If the login screen is not already displayed, display it. If the login screen is
     // displayed, then getting back here means the login in progress did not successfully
     // complete. In that case, notify the login view so it can update its UI appropriately.
-    if (![modalViewController isKindOfClass:[FRGLoginViewController2 class]]) {
-        FRGLoginViewController2* loginViewController = [[FRGLoginViewController2 alloc]
-                                                      initWithNibName:@"FRGLoginViewController2"
-                                                      bundle:nil];
-        [topViewController presentModalViewController:loginViewController animated:NO];
+    if (![topViewController isKindOfClass:[FRGLoginViewController class]]) {
+        NSLog(@"kind of class succeeded!!");
+        FRGLoginViewController* loginViewController = self.loginController;
+        [topViewController presentViewController:loginViewController animated:NO completion:nil];
     } else {
-        FRGLoginViewController2* loginViewController =
-        (FRGLoginViewController2*)modalViewController;
+        NSLog(@"kind of class failed");
+        FRGLoginViewController* loginViewController = (FRGLoginViewController*) topViewController;
         [loginViewController loginFailed];
     }
 
@@ -88,20 +84,36 @@
 {
     switch (state) {
         case FBSessionStateOpen: {
-            UIViewController *topViewController =
-            [self.navController topViewController];
-            if ([[topViewController modalViewController]
-                 isKindOfClass:[FRGViewController class]]) {
-                [topViewController dismissModalViewControllerAnimated:YES];
-            }
-        }
-            break;
-        case FBSessionStateClosed:
-        case FBSessionStateClosedLoginFailed:
-            // Once the user has logged in, we want them to
-            // be looking at the root view.
-            [self.navController popToRootViewControllerAnimated:NO];
             
+            /*if (!error) {
+                UIViewController *topViewController = self.window.rootViewController;
+                // We have a valid session
+                NSLog(@"User session found");
+                //[curViewController dismissViewControllerAnimated:YES completion:nil];
+                //FRGLoginViewController* loginViewController = self.loginController;
+                if (![topViewController isKindOfClass:[FRGLoggedInBaseViewController class]]) {
+                    NSLog(@"kind of class succeeded");
+                    FRGLoggedInBaseViewController* loggedInController = self.loggedInController;
+                    [topViewController presentViewController:loggedInController animated:NO completion:nil];
+                } else {
+                    NSLog(@"kind of class failed");
+                    FRGLoggedInBaseViewController* loggedInController = (FRGLoggedInBaseViewController*) topViewController;
+                    //[FRGLoggedInBaseViewController loginFailed];
+                    [topViewController presentViewController:loggedInController animated:NO completion:nil];
+                }
+                FRGLoggedInBaseViewController* loggedInController = self.loggedInController;
+                [topViewController presentViewController:loggedInController animated:YES completion:nil];
+                
+                //[self reautorizarPermisos:self ];
+            }*/
+             break;
+        }
+        case FBSessionStateClosed:{
+            NSLog(@"session closed successfully!");
+            break;
+        }
+            
+        case FBSessionStateClosedLoginFailed:
             [FBSession.activeSession closeAndClearTokenInformation];
             
             [self showLoginView];
@@ -123,13 +135,25 @@
 
 - (void)openSession
 {
-    [FBSession openActiveSessionWithReadPermissions:nil
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"user_location",
+                            @"user_birthday",
+                            @"read_friendlists",
+                            @"user_likes",
+                            nil];
+    [FBSession openActiveSessionWithReadPermissions:permissions
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session,
        FBSessionState state, NSError *error) {
          [self sessionStateChanged:session state:state error:error];
      }];
+    
+    
+}
+
+- (void) closeSession {
+    [FBSession.activeSession closeAndClearTokenInformation];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

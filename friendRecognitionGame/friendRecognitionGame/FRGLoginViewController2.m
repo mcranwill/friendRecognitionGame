@@ -10,7 +10,8 @@
 #import "FriendRecognitionGameAppDelegate.h"
 
 @interface FRGLoginViewController2 ()
-
+- (IBAction)performLogin:(id)sender;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 @implementation FRGLoginViewController2
