@@ -35,11 +35,11 @@ NSString *const FBSessionStateChangedNotification =
     [self.window makeKeyAndVisible];
     */
     //self.loginController = [[FRGLoginViewController alloc] i
-    
+    //NSLog(@"In the initial call");
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){ //See if we have a valid token for the current state.
         //show logged in view
         [self openSession];
-        NSLog(@"Made it here");
+        //NSLog(@"we have a valid token");
     }else{
         //no display the login page.
         [self showLoginView];
@@ -78,13 +78,16 @@ NSString *const FBSessionStateChangedNotification =
 
 }
 
+
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
                       error:(NSError *)error
 {
+   // NSLog(@"State has changed");
+    //NSLog((NSString *) state);
     switch (state) {
         case FBSessionStateOpen: {
-            
+            //NSLog(@"state is currently open.");
             /*if (!error) {
                 UIViewController *topViewController = self.window.rootViewController;
                 // We have a valid session
@@ -109,7 +112,7 @@ NSString *const FBSessionStateChangedNotification =
              break;
         }
         case FBSessionStateClosed:{
-            NSLog(@"session closed successfully!");
+            //NSLog(@"session closed successfully!");
             break;
         }
             
@@ -140,6 +143,8 @@ NSString *const FBSessionStateChangedNotification =
                             @"user_birthday",
                             @"read_friendlists",
                             @"user_likes",
+                            @"user_photos",
+                            @"friends_photos",
                             nil];
     [FBSession openActiveSessionWithReadPermissions:permissions
                                        allowLoginUI:YES
@@ -148,9 +153,9 @@ NSString *const FBSessionStateChangedNotification =
        FBSessionState state, NSError *error) {
          [self sessionStateChanged:session state:state error:error];
      }];
-    
-    
 }
+
+
 
 - (void) closeSession {
     [FBSession.activeSession closeAndClearTokenInformation];

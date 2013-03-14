@@ -9,5 +9,11 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface FBDataController : FBGraphObject
-
+@property (nonatomic, copy) NSArray *friendsList;
+- (void) initializeDefaultDataController;
+- (NSString*) getRandomFriendName;
+//- (UIImageView *) requestProfilePic: (NSString *) blessedFriend;
+- (id) getChosenFriend;
+- (NSString *) requestFriendsList;
+- (NSString*) lineOpen;
 @end

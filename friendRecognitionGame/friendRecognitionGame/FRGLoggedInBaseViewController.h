@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBDataController.h"
 
 @interface FRGLoggedInBaseViewController : UIViewController
 - (IBAction)performLogout:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *userInfoTextView;
-
-
+@property (strong, nonatomic) FBDataController *fbDController;
+//- (void) setUserText:(NSString *) friendsNames;
 @end

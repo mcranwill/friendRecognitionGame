@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import "FriendRecognitionGameMasterViewController.h"
 #import "FRGLoginViewController.h"
 #import "FRGViewController.h"
 #import "FRGLoggedInBaseViewController.h"
@@ -21,6 +20,5 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (strong, nonatomic) FRGLoggedInBaseViewController *loggedInController;
 - (void) openSession;
 - (void) closeSession;
-//@property (strong, nonatomic) FRGViewController* mainViewController;
 
 @end
