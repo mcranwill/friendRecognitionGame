@@ -10,7 +10,11 @@
 
 @interface FBDataController : FBGraphObject
 @property (nonatomic, copy) NSArray *friendsList;
+@property NSInteger totalAttempts;
+@property NSInteger totalSuccesses;
 - (void) initializeDefaultDataController;
+- (void) incrementSuccesses;
+- (void) incrementAttempts;
 - (NSString*) getRandomFriendName;
 //- (UIImageView *) requestProfilePic: (NSString *) blessedFriend;
 - (id) getChosenFriend;

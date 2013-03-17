@@ -10,10 +10,13 @@
 #include <stdlib.h>
 
 @implementation FBDataController
+@synthesize totalSuccesses;
+@synthesize totalAttempts;
 
 - (void) initializeDefaultDataController {
-    //[super init];
     self.friendsList = [[NSArray alloc] init];
+    totalAttempts = 0;
+    totalSuccesses = 0;
 }
 
 - (id)init {
@@ -24,12 +27,19 @@
     return nil;
 }
 
+- (void) incrementSuccesses {
+    totalSuccesses++;
+}
+
+- (void) incrementAttempts {
+    totalAttempts++;
+}
+
 - (NSString*) getRandomFriendName {
     return [[self.friendsList objectAtIndex:arc4random_uniform(self.friendsList.count)] name];
 }
 
 - (id) getChosenFriend {
-    //id temp = [self.friendsList objectAtIndex:<#(NSUInteger)#>]
     return [self.friendsList objectAtIndex: arc4random_uniform(self.friendsList.count)];
 }
 

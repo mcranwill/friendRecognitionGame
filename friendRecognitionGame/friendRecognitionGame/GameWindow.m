@@ -104,12 +104,13 @@
     
     if([self.blessedFriend name] == [_arrayOptions objectAtIndex:[self.selectionPicker selectedRowInComponent:0]]){
         NSLog(@"you got it right!!");
+        [self.fbDController incrementSuccesses];
         //Do something with this result
     }else{
         NSLog(@"you got it wrong! Somebody probably loves you, maybe.");
     }
     //Do something with the generic result.
-    
+    [self.fbDController incrementAttempts];
     [self setGameWithOptionsAndImage];
 }
 
