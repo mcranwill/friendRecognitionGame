@@ -16,8 +16,6 @@
 - (void) incrementSuccesses;
 - (void) incrementAttempts;
 - (NSString*) getRandomFriendName;
-//- (UIImageView *) requestProfilePic: (NSString *) blessedFriend;
 - (id) getChosenFriend;
-- (NSString *) requestFriendsList;
 - (NSString*) lineOpen;
 @end

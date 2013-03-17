@@ -18,13 +18,14 @@
     [super awakeFromNib];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     self.arrayOptions = [[NSMutableArray alloc] init];
     NSLog([self.fbDController lineOpen]);
     [self setGameWithOptionsAndImage];
 }
+
+
 
 - (void) setImage {
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"picture.height(150).width(150)",@"fields",nil];
@@ -91,8 +92,7 @@
     NSLog(@"the incoming component is %d", component);
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -112,6 +112,14 @@
     //Do something with the generic result.
     [self.fbDController incrementAttempts];
     [self setGameWithOptionsAndImage];
+}
+
+- (IBAction)getResults:(id)sender {
+    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", self.fbDController.totalSuccesses, self.fbDController.totalAttempts];
+                  //  @"Successes: %d",;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Past Results" message:msg delegate:nil cancelButtonTitle:@"Finished" otherButtonTitles: nil];
+    [alert show];
+
 }
 
 - (IBAction)setNewGame:(id)sender {

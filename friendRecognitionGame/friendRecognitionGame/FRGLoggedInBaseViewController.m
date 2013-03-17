@@ -27,9 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    //Check to see that user is connected to FB.
     
+    //Check to see that user is connected to FB.
     if (FBSession.activeSession.isOpen) {
         [FBRequestConnection
          startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection,  //Get the friends list
@@ -38,8 +37,8 @@
              if (!error) {
                  //Update friends list
                  _fbDController.friendsList = (NSArray*)[data data];
-                 //Code to print out friends List
                  
+                 //Prints out friends List to a UITextView
                  NSString *userInfo = [[NSString alloc] init];
                  NSMutableArray *friendNames = [[NSMutableArray alloc] init];
                  for (int i =0; i <[_fbDController.friendsList count]; i++){ 
@@ -70,7 +69,6 @@
 
 - (IBAction)performLogout:(id)sender {
     [FBSession.activeSession closeAndClearTokenInformation];
-    //NSLog(FBSession.activeSession.state);
 }
 
 @end

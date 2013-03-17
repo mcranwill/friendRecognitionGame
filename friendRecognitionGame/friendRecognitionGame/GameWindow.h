@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSMutableArray *arrayOptions;
 
 @property id blessedFriend;
+- (IBAction)getResults:(id)sender;
 
 - (void) setImage;
 - (IBAction)submitForProcessing:(id)sender;
