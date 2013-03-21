@@ -88,8 +88,8 @@
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    NSLog(@"Selected Item: %@. Index of selected item: %i", [_arrayOptions objectAtIndex:row], row);
-    NSLog(@"the incoming component is %d", component);
+    //NSLog(@"Selected Item: %@. Index of selected item: %i", [_arrayOptions objectAtIndex:row], row);
+    //NSLog(@"the incoming component is %d", component);
 }
 
 - (void)didReceiveMemoryWarning{
@@ -98,24 +98,38 @@
 }
 
 - (IBAction)submitForProcessing:(id)sender {
-    NSLog([self.blessedFriend name]);
-    NSLog([_arrayOptions objectAtIndex:[self.selectionPicker selectedRowInComponent:0]]);
+    //NSLog([self.blessedFriend name]);
+    //NSLog([_arrayOptions objectAtIndex:[self.selectionPicker selectedRowInComponent:0]]);
     
+    NSMutableString *msg = [[NSMutableString alloc] init];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     
     if([self.blessedFriend name] == [_arrayOptions objectAtIndex:[self.selectionPicker selectedRowInComponent:0]]){
-        NSLog(@"you got it right!!");
+        [msg appendString:@"You got it right! \n"];
+        [msg appendString:@"Congratulations "];
+        [alert setMessage:msg];
+        [alert show];
         [self.fbDController incrementSuccesses];
+        //[]
         //Do something with this result
     }else{
-        NSLog(@"you got it wrong! Somebody probably loves you, maybe.");
+        NSString *correctAns = [[NSString alloc] initWithString:[self.blessedFriend name]];
+        [msg appendString:@"The correct answer was \n"];
+        [msg appendString:correctAns];
+        [msg appendString:@"\n Better luck next time." ];
+        
+        [alert setMessage:msg];
+        [alert show];
     }
     //Do something with the generic result.
+    //NSLog([NSString stringWithFormat:@"attempts: %d",[self.fbDController getAttempts]]);
     [self.fbDController incrementAttempts];
+    //NSLog([NSString stringWithFormat:@"attempts: %d",[self.fbDController getAttempts]]);
     [self setGameWithOptionsAndImage];
 }
 
 - (IBAction)getResults:(id)sender {
-    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", self.fbDController.totalSuccesses, self.fbDController.totalAttempts];
+    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", [self.fbDController getSuccesses], [self.fbDController getAttempts]];
                   //  @"Successes: %d",;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Past Results" message:msg delegate:nil cancelButtonTitle:@"Finished" otherButtonTitles: nil];
     [alert show];

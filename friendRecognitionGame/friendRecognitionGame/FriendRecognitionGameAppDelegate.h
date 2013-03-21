@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "FRGLoginViewController.h"
-#import "FRGViewController.h"
+//#import "FRGViewController.h"
 #import "FRGLoggedInBaseViewController.h"
 
 @interface FriendRecognitionGameAppDelegate : UIResponder <UIApplicationDelegate>

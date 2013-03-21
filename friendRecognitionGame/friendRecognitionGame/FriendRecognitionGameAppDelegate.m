@@ -7,7 +7,6 @@
 //
 
 #import "FriendRecognitionGameAppDelegate.h"
-#import "FRGLoginViewController2.h"
 #import "FRGLoginViewController.h"
 #import "FRGLoggedInBaseViewController.h"
 

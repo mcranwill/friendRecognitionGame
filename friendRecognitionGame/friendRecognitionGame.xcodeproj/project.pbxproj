@@ -27,6 +27,7 @@
 		F3CDEC1016CAB1A900934E00 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0D16CAB1A900934E00 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F3CDEC1116CAB1A900934E00 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0E16CAB1A900934E00 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F3CDEC1216CAB1A900934E00 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0F16CAB1A900934E00 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F3E40D6316FB5DAD00FBAE84 /* ResultsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E40D6216FB5DAD00FBAE84 /* ResultsObj.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		F3CDEC0D16CAB1A900934E00 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F3CDEC0E16CAB1A900934E00 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F3CDEC0F16CAB1A900934E00 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F3E40D6116FB5DAD00FBAE84 /* ResultsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsObj.h; sourceTree = "<group>"; };
+		F3E40D6216FB5DAD00FBAE84 /* ResultsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsObj.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				F35461FA16D6919F00CEB191 /* FBDataController.m */,
 				F35461FD16D6945400CEB191 /* FRGLoggedInBaseViewController.h */,
 				F35461FE16D6945400CEB191 /* FRGLoggedInBaseViewController.m */,
+				F3E40D6116FB5DAD00FBAE84 /* ResultsObj.h */,
+				F3E40D6216FB5DAD00FBAE84 /* ResultsObj.m */,
 				F3B30C5116C2E8360020452A /* Supporting Files */,
 			);
 			path = friendRecognitionGame;
@@ -219,6 +224,7 @@
 				F35461FB16D6919F00CEB191 /* FBDataController.m in Sources */,
 				F35461FF16D6945400CEB191 /* FRGLoggedInBaseViewController.m in Sources */,
 				F354620716DD170800CEB191 /* GameWindow.m in Sources */,
+				F3E40D6316FB5DAD00FBAE84 /* ResultsObj.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

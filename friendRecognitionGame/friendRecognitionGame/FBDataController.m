@@ -10,29 +10,51 @@
 #include <stdlib.h>
 
 @implementation FBDataController
-@synthesize totalSuccesses;
-@synthesize totalAttempts;
+
 
 - (void) initializeDefaultDataController {
-    self.friendsList = [[NSArray alloc] init];
-    totalAttempts = 0;
-    totalSuccesses = 0;
+    
 }
 
 - (id)init {
     if (self = [super init]) {
-        [self initializeDefaultDataController];
+        self.friendsList = [[NSArray alloc] init];
+        self.results = [[ResultsObj alloc] initWithValue:0];
+        //NSLog(@"... %@",self.results);
+
         return self;
     }
     return nil;
 }
 
+- (void)addResultObj:(ResultsObj *)res {
+    NSLog(@"%@",res);
+    [self setResults:res];
+}
+//
+//- (void) setResults:(ResultsObj *)results {
+//    _results.totalAttempts = results.totalAttempts;
+//    _results.totalSuccesses = results.totalSuccesses;
+//}
+
 - (void) incrementSuccesses {
-    totalSuccesses++;
+    [self.results incrementResultSuccesses];
+    //_results.totalSuccesses++;
 }
 
 - (void) incrementAttempts {
-    totalAttempts++;
+    //NSLog([NSString stringWithFormat:@"attempts: %d",self.results.totalAttempts]);
+    //NSLog(@"%@",self.results);
+    [self.results incrementResultAttempts];
+    //NSLog([NSString stringWithFormat:@"attempts: %d",self.results.totalAttempts]);
+    //_results.totalAttempts++;
+}
+
+- (NSInteger) getAttempts{
+    return self.results.totalAttempts;
+}
+- (NSInteger) getSuccesses{
+    return self.results.totalSuccesses;
 }
 
 - (NSString*) getRandomFriendName {
@@ -49,6 +71,5 @@
     } else {
         return @"fail, we did not get a new object.";
     }
-    
 }
 @end

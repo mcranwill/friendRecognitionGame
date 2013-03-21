@@ -7,15 +7,19 @@
 //
 
 #import <FacebookSDK/FacebookSDK.h>
+#import "ResultsObj.h"
 
 @interface FBDataController : FBGraphObject
 @property (nonatomic, copy) NSArray *friendsList;
-@property NSInteger totalAttempts;
-@property NSInteger totalSuccesses;
+@property (nonatomic) ResultsObj *results;
+- (NSInteger) getAttempts;
+- (NSInteger) getSuccesses;
 - (void) initializeDefaultDataController;
 - (void) incrementSuccesses;
 - (void) incrementAttempts;
 - (NSString*) getRandomFriendName;
 - (id) getChosenFriend;
 - (NSString*) lineOpen;
+//- (void) setResults:(ResultsObj *)results;
+- (void) addResultObj:(ResultsObj *)res;
 @end

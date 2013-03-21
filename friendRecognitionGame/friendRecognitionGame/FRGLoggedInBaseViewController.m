@@ -52,12 +52,71 @@
              }
          }];
     }
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:app];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // paths[0];
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"data.tlist"];
+    
+    if ([fileManager fileExistsAtPath:archivePath] == YES)
+    {
+        //Decode
+        NSData *data = [NSData dataWithContentsOfFile:archivePath];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        
+        NSMutableString *temp = [[NSMutableString alloc] init];
+        [temp appendString:@"key"];
+        //NSInteger inde = 0;
+        while ([unarchiver containsValueForKey:temp]) {
+            ResultsObj *temporaryResultsObj =[[ResultsObj alloc] initWithValue:0];
+            temporaryResultsObj = [unarchiver decodeObjectForKey:temp];
+            [self.fbDController addResultObj:[unarchiver decodeObjectForKey:temp]];
+            
+            //[[self tableView] ];
+            [temp appendString:@"1"];
+            //inde++;
+        }
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"playGame"]){
         GameWindow *controller = (GameWindow *)segue.destinationViewController;
         controller.fbDController = _fbDController;
+    }
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    NSLog(@"Entering Background");
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // paths[0];
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"data.tlist"];
+    
+    NSMutableData *data = [NSMutableData data];
+    
+    //TaskObj *each;
+    //NSMutableString *temp = [[NSMutableString alloc] init];
+    // [temp appendString:@"key"];
+    //) {
+    //[temp appendString:@"1"];
+    //[archiver encodeObject:self.fbDController forKey: @"successes"];
+    //}
+    
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    
+    [archiver encodeObject:self.fbDController.results forKey: @"key"];
+    [archiver finishEncoding];
+    
+    BOOL success = [data writeToFile:archivePath atomically:YES];
+    if (success) {
+        NSLog(@"printed successfully");
+    }else {
+        NSLog(@"something failed");
     }
 }
 
