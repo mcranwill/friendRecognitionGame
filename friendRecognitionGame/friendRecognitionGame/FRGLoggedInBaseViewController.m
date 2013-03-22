@@ -48,6 +48,11 @@
                              stringByAppendingString:
                              [NSString stringWithFormat:@"friendNames: %@\n\n",
                               friendNames]];            //add friendNames object to userInfo.
+                 if([self.activitySpinner isAnimating]){
+                     [self.activitySpinner setHidden:YES];
+                 }
+                 //[self.activitySpinner setHidden:true];
+                 [self.userInfoTextView setHidden:false];
                  self.userInfoTextView.text = userInfo;
              }
          }];
@@ -70,7 +75,6 @@
         
         NSMutableString *temp = [[NSMutableString alloc] init];
         [temp appendString:@"key"];
-        //NSInteger inde = 0;
         while ([unarchiver containsValueForKey:temp]) {
             ResultsObj *temporaryResultsObj =[[ResultsObj alloc] initWithValue:0];
             temporaryResultsObj = [unarchiver decodeObjectForKey:temp];
@@ -81,6 +85,8 @@
             //inde++;
         }
     }
+    
+    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -98,15 +104,6 @@
     NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"data.tlist"];
     
     NSMutableData *data = [NSMutableData data];
-    
-    //TaskObj *each;
-    //NSMutableString *temp = [[NSMutableString alloc] init];
-    // [temp appendString:@"key"];
-    //) {
-    //[temp appendString:@"1"];
-    //[archiver encodeObject:self.fbDController forKey: @"successes"];
-    //}
-    
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     
     [archiver encodeObject:self.fbDController.results forKey: @"key"];

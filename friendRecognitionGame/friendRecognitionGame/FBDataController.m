@@ -11,31 +11,18 @@
 
 @implementation FBDataController
 
-
-- (void) initializeDefaultDataController {
-    
-}
-
 - (id)init {
     if (self = [super init]) {
         self.friendsList = [[NSArray alloc] init];
         self.results = [[ResultsObj alloc] initWithValue:0];
-        //NSLog(@"... %@",self.results);
-
         return self;
     }
     return nil;
 }
 
 - (void)addResultObj:(ResultsObj *)res {
-    NSLog(@"%@",res);
     [self setResults:res];
 }
-//
-//- (void) setResults:(ResultsObj *)results {
-//    _results.totalAttempts = results.totalAttempts;
-//    _results.totalSuccesses = results.totalSuccesses;
-//}
 
 - (void) incrementSuccesses {
     [self.results incrementResultSuccesses];
@@ -43,11 +30,7 @@
 }
 
 - (void) incrementAttempts {
-    //NSLog([NSString stringWithFormat:@"attempts: %d",self.results.totalAttempts]);
-    //NSLog(@"%@",self.results);
     [self.results incrementResultAttempts];
-    //NSLog([NSString stringWithFormat:@"attempts: %d",self.results.totalAttempts]);
-    //_results.totalAttempts++;
 }
 
 - (NSInteger) getAttempts{

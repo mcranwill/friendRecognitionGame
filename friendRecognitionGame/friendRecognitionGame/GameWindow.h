@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) FBDataController *fbDController;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinnerGW;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicViewer;
 @property (strong, nonatomic) IBOutlet UIPickerView *selectionPicker;
 @property (strong, nonatomic) NSMutableArray *arrayOptions;
@@ -21,6 +22,8 @@
 - (IBAction)getResults:(id)sender;
 
 - (void) setImage;
+- (void) setDoneLoading;
+- (void) setLoading;
 - (IBAction)submitForProcessing:(id)sender;
 - (IBAction)setNewGame:(id)sender;
 @end

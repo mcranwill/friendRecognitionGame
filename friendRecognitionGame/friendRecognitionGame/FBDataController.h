@@ -14,12 +14,10 @@
 @property (nonatomic) ResultsObj *results;
 - (NSInteger) getAttempts;
 - (NSInteger) getSuccesses;
-- (void) initializeDefaultDataController;
 - (void) incrementSuccesses;
 - (void) incrementAttempts;
 - (NSString*) getRandomFriendName;
 - (id) getChosenFriend;
 - (NSString*) lineOpen;
-//- (void) setResults:(ResultsObj *)results;
 - (void) addResultObj:(ResultsObj *)res;
 @end

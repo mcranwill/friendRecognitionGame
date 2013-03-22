@@ -23,6 +23,12 @@
     self.arrayOptions = [[NSMutableArray alloc] init];
     NSLog([self.fbDController lineOpen]);
     [self setGameWithOptionsAndImage];
+    NSLog(@"%c", [self.activitySpinnerGW isAnimating]);
+    NSLog(@"%c", TRUE);
+    
+    //[self.activitySpinnerGW setHidden:YES];
+    //[self.activitySpinner setHidden:true];
+    
 }
 
 
@@ -36,6 +42,7 @@
         if (!error) {
             [self.profilePicViewer setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[data  valueForKey:@"picture"] data] valueForKey:@"url"]]]]];
         
+            [self setDoneLoading];
             //Code to print out data received in data object
             /*
              NSEnumerator *enumerat = [data keyEnumerator];
@@ -46,9 +53,7 @@
     }];
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    return 1;
-}
+
 
 - (void) setGameWithOptionsAndImage {
     if([_arrayOptions count] > 0){
@@ -77,6 +82,26 @@
     }
 }
 
+- (void) setLoading {
+    if(![self.activitySpinnerGW isAnimating]){
+        [self.activitySpinnerGW startAnimating];
+    }
+    [self.profilePicViewer setHidden:true];
+    [self.selectionPicker setHidden:true];
+}
+
+- (void) setDoneLoading {
+    if([self.activitySpinnerGW isAnimating]){
+        [self.activitySpinnerGW stopAnimating];
+    }
+    [self.profilePicViewer setHidden:false];
+    [self.selectionPicker setHidden:false];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 1;
+}
+
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
     
     return [_arrayOptions count];
@@ -87,9 +112,6 @@
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    //NSLog(@"Selected Item: %@. Index of selected item: %i", [_arrayOptions objectAtIndex:row], row);
-    //NSLog(@"the incoming component is %d", component);
 }
 
 - (void)didReceiveMemoryWarning{
@@ -108,10 +130,8 @@
         [msg appendString:@"You got it right! \n"];
         [msg appendString:@"Congratulations "];
         [alert setMessage:msg];
-        [alert show];
+        
         [self.fbDController incrementSuccesses];
-        //[]
-        //Do something with this result
     }else{
         NSString *correctAns = [[NSString alloc] initWithString:[self.blessedFriend name]];
         [msg appendString:@"The correct answer was \n"];
@@ -119,12 +139,13 @@
         [msg appendString:@"\n Better luck next time." ];
         
         [alert setMessage:msg];
-        [alert show];
     }
-    //Do something with the generic result.
-    //NSLog([NSString stringWithFormat:@"attempts: %d",[self.fbDController getAttempts]]);
+    
+    [self setLoading];
+    [alert show];
+    
     [self.fbDController incrementAttempts];
-    //NSLog([NSString stringWithFormat:@"attempts: %d",[self.fbDController getAttempts]]);
+    
     [self setGameWithOptionsAndImage];
 }
 

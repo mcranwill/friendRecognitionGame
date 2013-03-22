@@ -12,6 +12,7 @@
 @interface FRGLoggedInBaseViewController : UIViewController
 - (IBAction)performLogout:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *userInfoTextView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinner;
 @property (strong, nonatomic) FBDataController *fbDController;
 //- (void) setUserText:(NSString *) friendsNames;
 @end
