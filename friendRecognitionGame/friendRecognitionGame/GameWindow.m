@@ -53,7 +53,21 @@
     }];
 }
 
+- (void) setLoading {
+    if(![self.activitySpinnerGW isAnimating]){
+        [self.activitySpinnerGW startAnimating];
+    }
+    [self.profilePicViewer setHidden:true];
+    [self.selectionPicker setHidden:true];
+}
 
+- (void) setDoneLoading {
+    if([self.activitySpinnerGW isAnimating]){
+        [self.activitySpinnerGW stopAnimating];
+    }
+    [self.profilePicViewer setHidden:false];
+    [self.selectionPicker setHidden:false];
+}
 
 - (void) setGameWithOptionsAndImage {
     if([_arrayOptions count] > 0){
@@ -82,21 +96,7 @@
     }
 }
 
-- (void) setLoading {
-    if(![self.activitySpinnerGW isAnimating]){
-        [self.activitySpinnerGW startAnimating];
-    }
-    [self.profilePicViewer setHidden:true];
-    [self.selectionPicker setHidden:true];
-}
 
-- (void) setDoneLoading {
-    if([self.activitySpinnerGW isAnimating]){
-        [self.activitySpinnerGW stopAnimating];
-    }
-    [self.profilePicViewer setHidden:false];
-    [self.selectionPicker setHidden:false];
-}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     return 1;

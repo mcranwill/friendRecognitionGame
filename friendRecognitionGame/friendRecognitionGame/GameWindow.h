@@ -19,13 +19,14 @@
 @property (strong, nonatomic) NSMutableArray *arrayOptions;
 
 @property id blessedFriend;
-- (IBAction)getResults:(id)sender;
+- (IBAction)submitForProcessing:(id)sender;
+- (IBAction)setNewGame:(id)sender;
 
+- (IBAction)getResults:(id)sender;
 - (void) setImage;
 - (void) setDoneLoading;
 - (void) setLoading;
-- (IBAction)submitForProcessing:(id)sender;
-- (IBAction)setNewGame:(id)sender;
+
 @end
 
 /*

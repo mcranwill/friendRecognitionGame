@@ -11,6 +11,8 @@
 		F35461FB16D6919F00CEB191 /* FBDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35461FA16D6919F00CEB191 /* FBDataController.m */; };
 		F35461FF16D6945400CEB191 /* FRGLoggedInBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35461FE16D6945400CEB191 /* FRGLoggedInBaseViewController.m */; };
 		F354620716DD170800CEB191 /* GameWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F354620616DD170800CEB191 /* GameWindow.m */; };
+		F38E007D16FCEAEA005345B1 /* FRGgameWindowWithTables.m in Sources */ = {isa = PBXBuildFile; fileRef = F38E007C16FCEAEA005345B1 /* FRGgameWindowWithTables.m */; };
+		F38E008016FCF847005345B1 /* SelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38E007F16FCF847005345B1 /* SelectionTableViewController.m */; };
 		F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4A16C2E8360020452A /* UIKit.framework */; };
 		F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4C16C2E8360020452A /* Foundation.framework */; };
 		F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4E16C2E8360020452A /* CoreGraphics.framework */; };
@@ -39,6 +41,10 @@
 		F35461FE16D6945400CEB191 /* FRGLoggedInBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGLoggedInBaseViewController.m; sourceTree = "<group>"; };
 		F354620516DD170800CEB191 /* GameWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWindow.h; sourceTree = "<group>"; };
 		F354620616DD170800CEB191 /* GameWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameWindow.m; sourceTree = "<group>"; };
+		F38E007B16FCEAEA005345B1 /* FRGgameWindowWithTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRGgameWindowWithTables.h; sourceTree = "<group>"; };
+		F38E007C16FCEAEA005345B1 /* FRGgameWindowWithTables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRGgameWindowWithTables.m; sourceTree = "<group>"; };
+		F38E007E16FCF847005345B1 /* SelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionTableViewController.h; sourceTree = "<group>"; };
+		F38E007F16FCF847005345B1 /* SelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionTableViewController.m; sourceTree = "<group>"; };
 		F3B30C4616C2E8360020452A /* friendRecognitionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = friendRecognitionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B30C4A16C2E8360020452A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3B30C4C16C2E8360020452A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +130,10 @@
 				F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */,
 				F354620516DD170800CEB191 /* GameWindow.h */,
 				F354620616DD170800CEB191 /* GameWindow.m */,
+				F38E007B16FCEAEA005345B1 /* FRGgameWindowWithTables.h */,
+				F38E007C16FCEAEA005345B1 /* FRGgameWindowWithTables.m */,
+				F38E007E16FCF847005345B1 /* SelectionTableViewController.h */,
+				F38E007F16FCF847005345B1 /* SelectionTableViewController.m */,
 				F35461F916D6919F00CEB191 /* FBDataController.h */,
 				F35461FA16D6919F00CEB191 /* FBDataController.m */,
 				F35461FD16D6945400CEB191 /* FRGLoggedInBaseViewController.h */,
@@ -225,6 +235,8 @@
 				F35461FF16D6945400CEB191 /* FRGLoggedInBaseViewController.m in Sources */,
 				F354620716DD170800CEB191 /* GameWindow.m in Sources */,
 				F3E40D6316FB5DAD00FBAE84 /* ResultsObj.m in Sources */,
+				F38E007D16FCEAEA005345B1 /* FRGgameWindowWithTables.m in Sources */,
+				F38E008016FCF847005345B1 /* SelectionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
