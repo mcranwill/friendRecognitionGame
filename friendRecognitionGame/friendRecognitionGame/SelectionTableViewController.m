@@ -73,8 +73,6 @@
     if([_arrayOptions count] > 0){
         [_arrayOptions removeAllObjects];
     }
-    //NSLog(@"%d",[_arrayOptions count]);
-    //[self.selectionPicker reloadComponent:0];
     
     for(int i=0; i<3;i++){
         [_arrayOptions addObject:[self.fbDController getRandomFriendName]];
@@ -82,7 +80,7 @@
     
     self.blessedFriend = [_fbDController getChosenFriend];
     [_arrayOptions addObject:[self.blessedFriend name]];
-    // NSLog(@"%d",[_arrayOptions count]);
+    
     [self shuffleOptions];
     [self.tableView reloadData];
 }

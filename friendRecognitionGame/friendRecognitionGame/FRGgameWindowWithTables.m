@@ -53,8 +53,7 @@
 
 - (void) setImage {
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"picture.height(150).width(150)",@"fields",nil];
-    //[[self.childViewControllers.lastObject blessedFriend] id]
-    NSLog(@"%@",[[self.childViewControllers.lastObject blessedFriend] id]);
+    
     [FBRequestConnection startWithGraphPath:[[self.childViewControllers.lastObject blessedFriend] id] parameters:params HTTPMethod:nil completionHandler:^(FBRequestConnection *connection, id data, NSError *error) {
         if (!error) {
             [self.profilePicView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[data  valueForKey:@"picture"] data] valueForKey:@"url"]]]]];
@@ -96,16 +95,23 @@
     
     [self.fbDController incrementAttempts];
     
-    //[self setGameWithOptionsAndImage];
     [self.childViewControllers.lastObject setGameWithOptions];
     [self setImage];
 
 }
 
 - (IBAction)receiveNewGame:(id)sender {
+    [self setLoading];
+    [self.childViewControllers.lastObject setGameWithOptions];
+    [self setImage];
 }
 
 - (IBAction)requestResults:(id)sender {
+    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", [self.fbDController getSuccesses], [self.fbDController getAttempts]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Past Results" message:msg delegate:nil cancelButtonTitle:@"Finished" otherButtonTitles: nil];
+    
+    [alert show];
 }
 
 - (void) setLoading {
@@ -113,6 +119,7 @@
         [self.activitySpinnerTab startAnimating];
     }
     [self.profilePicView setHidden:true];
+    [[self.childViewControllers.lastObject tableView] setHidden:true];
     //[self.selectionPicker setHidden:true];
 }
 
@@ -121,6 +128,7 @@
         [self.activitySpinnerTab stopAnimating];
     }
     [self.profilePicView setHidden:false];
+    [[self.childViewControllers.lastObject tableView] setHidden:false];
     //[self.selectionPicker setHidden:false];
 }
  
