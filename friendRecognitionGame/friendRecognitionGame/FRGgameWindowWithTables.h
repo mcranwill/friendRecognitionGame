@@ -11,6 +11,7 @@
 
 @interface FRGgameWindowWithTables : UIViewController 
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicView;
+@property (strong, nonatomic) FBDataController *fbDController;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinnerTab;
 - (void) setImage;

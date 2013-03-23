@@ -260,7 +260,7 @@
                                     </barButtonItem>
                                     <barButtonItem title="FRG Game W Tables" width="79" id="dvS-S2-ebM">
                                         <connections>
-                                            <segue destination="10Y-1z-En6" kind="modal" id="B7p-NO-1aW"/>
+                                            <segue destination="10Y-1z-En6" kind="modal" identifier="playGame1" id="B7p-NO-1aW"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

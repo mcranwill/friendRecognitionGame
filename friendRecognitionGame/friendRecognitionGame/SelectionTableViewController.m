@@ -19,6 +19,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.arrayOptions = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -69,6 +70,32 @@
     return cell;
 }
 
+- (void) setGameWithOptions{
+    if([_arrayOptions count] > 0){
+        [_arrayOptions removeAllObjects];
+    }
+    //[self.selectionPicker reloadComponent:0];
+    
+    for(int i=0; i<3;i++){
+        [_arrayOptions addObject:[self.fbDController getRandomFriendName]];
+    }
+    
+    self.blessedFriend = [_fbDController getChosenFriend];
+    [_arrayOptions addObject:[self.blessedFriend name]];
+    
+    [self shuffleOptions];
+    //[self.selectionPicker reloadComponent:0];
+    //[self setImage];
+}
+
+- (void) shuffleOptions {
+    for (NSInteger i=0; i< [_arrayOptions count];i++){
+        int elementsLeft = [_arrayOptions count] -i;
+        int n = arc4random_uniform(elementsLeft) + i;
+        
+        [_arrayOptions exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

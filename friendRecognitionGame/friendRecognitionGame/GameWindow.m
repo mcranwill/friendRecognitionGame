@@ -31,8 +31,6 @@
     
 }
 
-
-
 - (void) setImage {
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"picture.height(150).width(150)",@"fields",nil];
 
@@ -95,8 +93,6 @@
         [_arrayOptions exchangeObjectAtIndex:i withObjectAtIndex:n];
     }
 }
-
-
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     return 1;

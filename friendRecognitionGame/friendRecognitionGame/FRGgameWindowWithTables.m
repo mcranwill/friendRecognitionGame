@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     NSLog(@"%@",self.childViewControllers.lastObject);
+    [self.childViewControllers.lastObject setGameWithOptions];
     [self setImage];
     //self.arrayOptions = [[NSMutableArray alloc] init];
     //NSLog([self.fbDController lineOpen]);
@@ -36,7 +37,10 @@
     NSString * segueName = segue.identifier;
     if ([segueName isEqualToString: @"select_embed"]) {
         SelectionTableViewController * childViewController = (SelectionTableViewController *) [segue destinationViewController];
-        SelectionTableViewController * alertView = childViewController.view;
+        //SelectionTableViewController * alertView = childViewController.view;
+        childViewController.fbDController = _fbDController;
+        //FRGgameWindowWithTables *contr = (FRGgameWindowWithTables *) segue.destinationViewController;
+        //contr.fbDController = _fbDController;
         // do something with the AlertView's subviews here...
     }
 }
@@ -50,7 +54,8 @@
 - (void) setImage {
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"picture.height(150).width(150)",@"fields",nil];
     //[[self.childViewControllers.lastObject blessedFriend] id]
-    [FBRequestConnection startWithGraphPath:@"me" parameters:params HTTPMethod:nil completionHandler:^(FBRequestConnection *connection, id data, NSError *error) {
+    NSLog(@"%@",[[self.childViewControllers.lastObject blessedFriend] id]);
+    [FBRequestConnection startWithGraphPath:[[self.childViewControllers.lastObject blessedFriend] id] parameters:params HTTPMethod:nil completionHandler:^(FBRequestConnection *connection, id data, NSError *error) {
         if (!error) {
             [self.profilePicView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[data  valueForKey:@"picture"] data] valueForKey:@"url"]]]]];
             

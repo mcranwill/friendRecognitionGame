@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "FBDataController.h"
 #import "GameWindow.h"
+#import "FRGgameWindowWithTables.h"
 
 @interface FRGLoggedInBaseViewController ()
 
@@ -93,6 +94,9 @@
     if([segue.identifier isEqualToString:@"playGame"]){
         GameWindow *controller = (GameWindow *)segue.destinationViewController;
         controller.fbDController = _fbDController;
+    } else if([segue.identifier isEqualToString:@"playGame1"]){
+        FRGgameWindowWithTables *contr = (FRGgameWindowWithTables *) segue.destinationViewController;
+        contr.fbDController = _fbDController;
     }
 }
 
