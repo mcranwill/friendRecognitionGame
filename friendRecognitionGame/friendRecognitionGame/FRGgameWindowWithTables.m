@@ -70,6 +70,44 @@
     }];
 }
 
+- (IBAction)submitTProcessing:(id)sender {
+    
+    NSMutableString *msg = [[NSMutableString alloc] init];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    
+    NSIndexPath *ip = [[self.childViewControllers.lastObject tableView] indexPathForSelectedRow];
+    if([[self.childViewControllers.lastObject blessedFriend] name] == [[self.childViewControllers.lastObject arrayOptions] objectAtIndex:[ip row]]){
+        [msg appendString:@"You got it right! \n"];
+        [msg appendString:@"Congratulations "];
+        [alert setMessage:msg];
+        
+        [self.fbDController incrementSuccesses];
+    }else{
+        NSString *correctAns = [[NSString alloc] initWithString:[[self.childViewControllers.lastObject blessedFriend] name]];
+        [msg appendString:@"The correct answer was \n"];
+        [msg appendString:correctAns];
+        [msg appendString:@"\n Better luck next time." ];
+        
+        [alert setMessage:msg];
+    }
+    
+    [self setLoading];
+    [alert show];
+    
+    [self.fbDController incrementAttempts];
+    
+    //[self setGameWithOptionsAndImage];
+    [self.childViewControllers.lastObject setGameWithOptions];
+    [self setImage];
+
+}
+
+- (IBAction)receiveNewGame:(id)sender {
+}
+
+- (IBAction)requestResults:(id)sender {
+}
+
 - (void) setLoading {
     if(![self.activitySpinnerTab isAnimating]){
         [self.activitySpinnerTab startAnimating];

@@ -17,9 +17,10 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
+    
     if (self) {
         // Custom initialization
-        self.arrayOptions = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
@@ -27,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.arrayOptions = [[NSMutableArray alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -56,7 +57,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     NSString *cellIdentifier = [NSString stringWithFormat:@"s%i-r%i", indexPath.section, indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil){
@@ -64,8 +64,7 @@
     }
     
     [_arrayOptions objectAtIndex:[indexPath row]];
-    cell.textLabel.text = @"Test";
-    //[[_arrayOptions objectAtIndex:[indexPath row]] name];
+    cell.textLabel.text = [_arrayOptions objectAtIndex:[indexPath row]];
     
     return cell;
 }
@@ -74,6 +73,7 @@
     if([_arrayOptions count] > 0){
         [_arrayOptions removeAllObjects];
     }
+    //NSLog(@"%d",[_arrayOptions count]);
     //[self.selectionPicker reloadComponent:0];
     
     for(int i=0; i<3;i++){
@@ -82,19 +82,22 @@
     
     self.blessedFriend = [_fbDController getChosenFriend];
     [_arrayOptions addObject:[self.blessedFriend name]];
-    
+    // NSLog(@"%d",[_arrayOptions count]);
     [self shuffleOptions];
-    //[self.selectionPicker reloadComponent:0];
-    //[self setImage];
+    [self.tableView reloadData];
 }
 
 - (void) shuffleOptions {
     for (NSInteger i=0; i< [_arrayOptions count];i++){
         int elementsLeft = [_arrayOptions count] -i;
         int n = arc4random_uniform(elementsLeft) + i;
-        
         [_arrayOptions exchangeObjectAtIndex:i withObjectAtIndex:n];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 /*
 // Override to support conditional editing of the table view.
@@ -137,15 +140,6 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
+
 
 @end

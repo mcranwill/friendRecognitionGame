@@ -92,15 +92,37 @@
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GA6-Rc-lch"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-f3-O5l">
+                                <items>
+                                    <barButtonItem title="Submit" id="mhb-UO-FdC">
+                                        <connections>
+                                            <action selector="submitTProcessing:" destination="10Y-1z-En6" id="9il-6R-Y6h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="New Picture" id="bbB-28-K3v">
+                                        <connections>
+                                            <action selector="receiveNewGame:" destination="10Y-1z-En6" id="QYX-wK-v9E"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Results" id="oDH-P0-dev">
+                                        <connections>
+                                            <action selector="requestResults:" destination="10Y-1z-En6" id="1Ms-z5-hWo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UgF-TY-bJs" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="257" id="6JY-GG-GO6"/>
+                            <constraint firstItem="Yzi-f3-O5l" firstAttribute="leading" secondItem="2iV-f2-AGv" secondAttribute="leading" type="default" id="5OA-We-KEl"/>
                             <constraint firstItem="GA6-Rc-lch" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="222" id="89l-13-x3v"/>
-                            <constraint firstAttribute="bottom" secondItem="UgF-TY-bJs" secondAttribute="bottom" constant="28" id="DsI-yu-uVX"/>
                             <constraint firstItem="UgF-TY-bJs" firstAttribute="leading" secondItem="2iV-f2-AGv" secondAttribute="leading" type="default" id="G0T-D8-ZvT"/>
+                            <constraint firstItem="Yzi-f3-O5l" firstAttribute="bottom" secondItem="2iV-f2-AGv" secondAttribute="bottom" type="default" id="Ktm-pa-T9p"/>
+                            <constraint firstItem="UgF-TY-bJs" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="241" id="MHU-cV-bmf"/>
                             <constraint firstItem="GA6-Rc-lch" firstAttribute="centerX" secondItem="eJ5-YR-uWT" secondAttribute="centerX" type="default" id="R8h-0f-2le"/>
-                            <constraint firstItem="eJ5-YR-uWT" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="42" id="bIH-DZ-9IV"/>
+                            <constraint firstItem="eJ5-YR-uWT" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="41" id="U20-Pg-gk6"/>
+                            <constraint firstItem="Yzi-f3-O5l" firstAttribute="trailing" secondItem="2iV-f2-AGv" secondAttribute="trailing" type="default" id="Y5L-JM-Yfr"/>
+                            <constraint firstItem="UgF-TY-bJs" firstAttribute="bottom" secondItem="Yzi-f3-O5l" secondAttribute="top" type="default" id="hHO-1t-Dwq"/>
                             <constraint firstItem="GA6-Rc-lch" firstAttribute="centerX" secondItem="UgF-TY-bJs" secondAttribute="centerX" type="default" id="q7t-Va-AsA"/>
                             <constraint firstItem="UgF-TY-bJs" firstAttribute="trailing" secondItem="2iV-f2-AGv" secondAttribute="trailing" type="default" id="tBY-XH-tPa"/>
                         </constraints>
@@ -384,6 +406,9 @@
         <class className="FRGgameWindowWithTables" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FRGgameWindowWithTables.h"/>
             <relationships>
+                <relationship kind="action" name="receiveNewGame:"/>
+                <relationship kind="action" name="requestResults:"/>
+                <relationship kind="action" name="submitTProcessing:"/>
                 <relationship kind="outlet" name="activitySpinnerTab" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="profilePicView" candidateClass="UIImageView"/>
             </relationships>

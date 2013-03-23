@@ -21,7 +21,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.arrayOptions = [[NSMutableArray alloc] init];
-    NSLog([self.fbDController lineOpen]);
+    NSLog(@"%@",[self.fbDController lineOpen]);
     [self setGameWithOptionsAndImage];
     NSLog(@"%c", [self.activitySpinnerGW isAnimating]);
     NSLog(@"%c", TRUE);
