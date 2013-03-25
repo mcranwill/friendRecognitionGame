@@ -20,4 +20,5 @@
 - (id) getChosenFriend;
 - (NSString*) lineOpen;
 - (void) addResultObj:(ResultsObj *)res;
+- (void) writeResultsToFile;
 @end

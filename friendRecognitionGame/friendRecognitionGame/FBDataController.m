@@ -44,6 +44,27 @@
     return [[self.friendsList objectAtIndex:arc4random_uniform(self.friendsList.count)] name];
 }
 
+- (void) writeResultsToFile{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // paths[0];
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"data.tlist"];
+    
+    NSMutableData *data = [NSMutableData data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    
+    [archiver encodeObject:self.results forKey: @"key"];
+    [archiver finishEncoding];
+    
+    BOOL success = [data writeToFile:archivePath atomically:YES];
+    if (success) {
+        NSLog(@"printed successfully");
+    }else {
+        NSLog(@"something failed");
+    }
+
+}
+
 - (id) getChosenFriend {
     return [self.friendsList objectAtIndex: arc4random_uniform(self.friendsList.count)];
 }

@@ -102,23 +102,7 @@
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification {
     NSLog(@"Entering Background");
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    // paths[0];
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"data.tlist"];
-    
-    NSMutableData *data = [NSMutableData data];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    
-    [archiver encodeObject:self.fbDController.results forKey: @"key"];
-    [archiver finishEncoding];
-    
-    BOOL success = [data writeToFile:archivePath atomically:YES];
-    if (success) {
-        NSLog(@"printed successfully");
-    }else {
-        NSLog(@"something failed");
-    }
+    [self.fbDController writeResultsToFile];
 }
 
 - (void)didReceiveMemoryWarning

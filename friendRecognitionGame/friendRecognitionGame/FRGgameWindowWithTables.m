@@ -91,13 +91,13 @@
     }
     
     [self setLoading];
+    [self.fbDController writeResultsToFile];
     [alert show];
     
     [self.fbDController incrementAttempts];
     
     [self.childViewControllers.lastObject setGameWithOptions];
     [self setImage];
-
 }
 
 - (IBAction)receiveNewGame:(id)sender {
@@ -119,6 +119,7 @@
         [self.activitySpinnerTab startAnimating];
     }
     [self.profilePicView setHidden:true];
+    //[[self.childViewControllers.lastObject contain]]
     [[self.childViewControllers.lastObject tableView] setHidden:true];
     //[self.selectionPicker setHidden:true];
 }
