@@ -1,39 +1,23 @@
 //
-//  GameWindow.h
+//  FRGgameWindowWithTables.h
 //  friendRecognitionGame
 //
-//  Created by Mike Cranwill on 2/26/13.
+//  Created by Mike Cranwill on 3/22/13.
 //  Copyright (c) 2013 Self. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "FBDataController.h"
 
-@interface GameWindow : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
-
+@interface FRGgameWindowWithTables : UIViewController 
+@property (strong, nonatomic) IBOutlet UIImageView *profilePicView;
 @property (strong, nonatomic) FBDataController *fbDController;
 
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinnerGW;
-@property (strong, nonatomic) IBOutlet UIImageView *profilePicViewer;
-@property (strong, nonatomic) IBOutlet UIPickerView *selectionPicker;
-@property (strong, nonatomic) NSMutableArray *arrayOptions;
-
-@property id blessedFriend;
-- (IBAction)submitForProcessing:(id)sender;
-- (IBAction)setNewGame:(id)sender;
-
-- (IBAction)getResults:(id)sender;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinnerTab;
 - (void) setImage;
+- (IBAction)submitTProcessing:(id)sender;
+- (IBAction)receiveNewGame:(id)sender;
+- (IBAction)requestResults:(id)sender;
 - (void) setDoneLoading;
 - (void) setLoading;
-
 @end
-
-/*
- NSEnumerator *enumerat = [data keyEnumerator];
- id key;
- // extra parens to suppress warning about using = instead of ==
- while((key = [enumerat nextObject]))
- NSLog(@"key=%@ value=%@", key, [data objectForKey:key]);
- */
-

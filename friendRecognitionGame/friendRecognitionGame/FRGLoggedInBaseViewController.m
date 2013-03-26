@@ -10,7 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "FBDataController.h"
 #import "GameWindow.h"
-#import "FRGgameWindowWithTables.h"
+#import "GameWindowPickerView.h"
 
 @interface FRGLoggedInBaseViewController ()
 
@@ -92,10 +92,10 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"playGame"]){
-        GameWindow *controller = (GameWindow *)segue.destinationViewController;
+        GameWindowPickerView *controller = (GameWindowPickerView *)segue.destinationViewController;
         controller.fbDController = _fbDController;
     } else if([segue.identifier isEqualToString:@"playGame1"]){
-        FRGgameWindowWithTables *contr = (FRGgameWindowWithTables *) segue.destinationViewController;
+        GameWindow *contr = (GameWindow *) segue.destinationViewController;
         contr.fbDController = _fbDController;
     }
 }
