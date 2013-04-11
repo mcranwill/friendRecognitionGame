@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FBDataController.h"
 
-@interface GameWindow : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface GameWindowPickerView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) FBDataController *fbDController;
 

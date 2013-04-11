@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Self. All rights reserved.
 //
 
-#import "FRGgameWindowWithTables.h"
+#import "GameWindow.h"
 #import "SelectionTableViewController.h"
 #include <stdlib.h>
 
-@interface FRGgameWindowWithTables ()
+@interface GameWindow ()
 
 @end
 
-@implementation FRGgameWindowWithTables
+@implementation GameWindow
 
 - (void)viewDidLoad
 {
@@ -39,6 +39,7 @@
         SelectionTableViewController * childViewController = (SelectionTableViewController *) [segue destinationViewController];
         //SelectionTableViewController * alertView = childViewController.view;
         childViewController.fbDController = _fbDController;
+        childViewController.gwindow = self;
         //FRGgameWindowWithTables *contr = (FRGgameWindowWithTables *) segue.destinationViewController;
         //contr.fbDController = _fbDController;
         // do something with the AlertView's subviews here...
@@ -91,10 +92,12 @@
     }
     
     [self setLoading];
+    [self.fbDController incrementAttempts];
+    
     [self.fbDController writeResultsToFile];
     [alert show];
     
-    [self.fbDController incrementAttempts];
+    
     
     [self.childViewControllers.lastObject setGameWithOptions];
     [self setImage];

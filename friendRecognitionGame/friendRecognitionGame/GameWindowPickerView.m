@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Self. All rights reserved.
 //
 
-#import "GameWindow.h"
+#import "GameWindowPickerView.h"
 #include <stdlib.h>
 
-@interface GameWindow ()
+@interface GameWindowPickerView ()
 @end
 
-@implementation GameWindow
+@implementation GameWindowPickerView
 
 - (void) awakeFromNib {
     [super awakeFromNib];

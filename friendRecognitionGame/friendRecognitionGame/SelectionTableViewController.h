@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "FBDataController.h"
+#import "GameWindow.h"
 
 @interface SelectionTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 //@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property NSInteger *lastRow;
+- (void)submitFromButton:(id)sender;
+//- (IBAction)submitFromButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) FBDataController *fbDController;
+@property (strong,nonatomic) GameWindow *gwindow;
 @property (strong, nonatomic) NSMutableArray *arrayOptions;
 @property id blessedFriend;
 

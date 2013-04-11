@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FBDataController.h"
 
-@interface FRGgameWindowWithTables : UIViewController 
+@interface GameWindow : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicView;
 @property (strong, nonatomic) FBDataController *fbDController;
 

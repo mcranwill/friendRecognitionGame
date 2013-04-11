@@ -7,6 +7,7 @@
 //
 
 #import "SelectionTableViewController.h"
+#import "CustTableViewCell.h"
 
 @interface SelectionTableViewController ()
 
@@ -29,6 +30,7 @@
 {
     [super viewDidLoad];
     self.arrayOptions = [[NSMutableArray alloc] init];
+    self.lastRow = 10;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -55,6 +57,8 @@
     return 4;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellIdentifier = [NSString stringWithFormat:@"s%i-r%i", indexPath.section, indexPath.row];
@@ -64,15 +68,32 @@
     }
     
     [_arrayOptions objectAtIndex:[indexPath row]];
-    cell.textLabel.text = [_arrayOptions objectAtIndex:[indexPath row]];
+    cell.textLabel.text =[_arrayOptions objectAtIndex:[indexPath row]];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    /*NSInteger i=0;
+    while (i < views.count) {
+        NSLog(@"%d",i);
+        NSLog(@"%@",views[i]);
+        i++;
+    }*/
+    
     
     return cell;
 }
 
+-(void) onBtnchild:(id) sender{
+    NSLog(@"HI");
+}
+
 - (void) setGameWithOptions{
+    
+   
+    
     if([_arrayOptions count] > 0){
         [_arrayOptions removeAllObjects];
     }
+   
     
     for(int i=0; i<3;i++){
         [_arrayOptions addObject:[self.fbDController getRandomFriendName]];
@@ -95,49 +116,93 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%d  and ip is %d",self.lastRow,[indexPath row]);
+    
+    if(self.lastRow == (NSInteger *)[indexPath row])
+    {
+        NSLog(@"was previously selected.");
+    //[self.tableView ]
+    }else{
+    
+        NSIndexPath *pass = [NSIndexPath indexPathForRow:self.lastRow inSection:0];
+        UITableViewCell *prevCell = [self.tableView cellForRowAtIndexPath:pass];
+        NSArray *prevViews = [prevCell subviews];
+        /*NSInteger i=0;
+        while (i < prevViews.count) {
+            NSLog(@"%d",i);
+            NSLog(@"%@",prevViews[i]);
+            i++;
+        }*/
+
+        [prevViews[2] removeFromSuperview];
+        
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTitle:@"Submit" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(submitFromButton:) forControlEvents:UIControlEventTouchUpInside];
+        //[button setBackgroundColor:[UIColor whiteColor]];
+        [button setFrame:CGRectMake(250, 2, 60,40)];
+        [cell addSubview:button];
+        //NSArray *views = [cell subviews];
+        //[views[1] setHidden:true];
+    
+        
+        NSLog(@"%d", self.lastRow);
+    
+        self.lastRow = [indexPath row];
+    }
     
 }
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 
-
+- (void)submitFromButton:(id)sender {
+    
+    NSIndexPath *ip = [[self tableView] indexPathForSelectedRow];
+    
+    //UITableViewCell *prevCell = ;
+    NSInteger i=0;
+    
+    
+    NSArray *prevViews = [[self.tableView cellForRowAtIndexPath:ip] subviews];
+    
+    [prevViews[3] removeFromSuperview];
+    self.lastRow= 10;
+    
+    NSMutableString *msg = [[NSMutableString alloc] init];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    
+   
+    if([[self blessedFriend] name] == [[self arrayOptions] objectAtIndex:[ip row]]){
+        [msg appendString:@"You got it right! \n"];
+        [msg appendString:@"Congratulations "];
+        [alert setMessage:msg];
+        
+        [self.fbDController incrementSuccesses];
+    }else{
+        NSString *correctAns = [[NSString alloc] initWithString:[[self blessedFriend] name]];
+        [msg appendString:@"The correct answer was \n"];
+        [msg appendString:correctAns];
+        [msg appendString:@"\n Better luck next time." ];
+        
+        [alert setMessage:msg];
+    }
+    
+    [self.gwindow setLoading];
+    [self.fbDController incrementAttempts];
+    
+    [self.fbDController writeResultsToFile];
+    [alert show];
+    
+    [self setGameWithOptions];
+    [self.gwindow setImage];
+}
 @end
