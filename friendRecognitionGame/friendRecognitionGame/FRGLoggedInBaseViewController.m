@@ -58,6 +58,14 @@
                  //[self.activitySpinner setHidden:true];
                  //[self.userInfoTextView setHidden:false];
                  //self.userInfoTextView.text = userInfo;
+             } else if (error){
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You were not able to connect to the internet." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                 [alert show];
+                 if([self.activitySpinner isAnimating]){
+                     [self.activitySpinner setHidden:YES];
+                 }
+                 //[self performSegueWithIdentifier:@"toLogin" sender:self];
+
              }
          }];
     }

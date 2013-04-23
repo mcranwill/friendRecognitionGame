@@ -164,6 +164,12 @@
     return NO;
 }
 
+- (void) removeSubmitButton:(NSIndexPath *) curIp {
+    NSArray *views  =[[self.tableView cellForRowAtIndexPath:curIp] subviews];
+    [views[3] removeFromSuperview];
+    self.lastRow = 10;
+}
+
 #pragma mark - Table view delegate
 
 
@@ -171,13 +177,8 @@
     
     NSIndexPath *ip = [[self tableView] indexPathForSelectedRow];
     
-    //UITableViewCell *prevCell = ;
-    NSInteger i=0;
+    [self removeSubmitButton:ip];
     
-    
-    NSArray *prevViews = [[self.tableView cellForRowAtIndexPath:ip] subviews];
-    
-    [prevViews[3] removeFromSuperview];
     self.lastRow= 10;
     
     NSMutableString *msg = [[NSMutableString alloc] init];

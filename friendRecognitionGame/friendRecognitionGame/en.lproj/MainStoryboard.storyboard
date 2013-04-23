@@ -220,7 +220,7 @@
                                     <barButtonItem title="Logout" width="95" id="bhp-mf-d7Q">
                                         <connections>
                                             <action selector="performLogout:" destination="dAS-XN-wBX" id="aCG-oa-Uz2"/>
-                                            <segue destination="3wk-72-kEu" kind="modal" id="t90-4w-okK"/>
+                                            <segue destination="3wk-72-kEu" kind="modal" identifier="" id="t90-4w-okK"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Play Game" id="nO3-ny-5Xm">
@@ -259,11 +259,12 @@
                     </view>
                     <connections>
                         <outlet property="activitySpinner" destination="8wQ-pW-14t" id="yzp-od-3hh"/>
+                        <segue destination="3wk-72-kEu" kind="modal" identifier="toLogin" id="5qd-3k-shS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRG-Cr-C95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132" y="19"/>
+            <point key="canvasLocation" x="-170" y="35"/>
         </scene>
         <!--Game Window Picker View-->
         <scene sceneID="o9H-K8-i1X">
@@ -388,6 +389,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="t90-4w-okK"/>
+        <segue reference="5qd-3k-shS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *arrayOptions;
 @property id blessedFriend;
 
+- (void) removeSubmitButton:(NSIndexPath *) curIp;
 - (void) setGameWithOptions;
 - (void) shuffleOptions;
 

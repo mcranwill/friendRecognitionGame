@@ -145,6 +145,9 @@
 
 - (IBAction)receiveNewGame:(id)sender {
     [self setLoading];
+    if( [self.childViewControllers.lastObject lastRow] < 10){
+        [self.childViewControllers.lastObject removeSubmitButton:[NSIndexPath indexPathForRow:[self.childViewControllers.lastObject lastRow] inSection:0]];
+    }
     [self.childViewControllers.lastObject setGameWithOptions];
     [self setImage];
 }
