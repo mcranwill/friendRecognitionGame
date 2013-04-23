@@ -133,7 +133,6 @@
             NSLog(@"%@",prevViews[i]);
             i++;
         }*/
-
         [prevViews[2] removeFromSuperview];
         
         
@@ -142,7 +141,11 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTitle:@"Submit" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(submitFromButton:) forControlEvents:UIControlEventTouchUpInside];
-        //[button setBackgroundColor:[UIColor whiteColor]];
+        [button setBackgroundColor:[UIColor colorWithRed:128 green:0 blue:128 alpha:1]];
+        //[cell se]
+        //[button s]
+        [cell setHighlighted:false];
+        [button setHighlighted:false];
         [button setFrame:CGRectMake(250, 2, 60,40)];
         [cell addSubview:button];
         //NSArray *views = [cell subviews];

@@ -40,7 +40,7 @@
                  _fbDController.friendsList = (NSArray*)[data data];
                  
                  //Prints out friends List to a UITextView
-                 NSString *userInfo = [[NSString alloc] init];
+                 /*NSString *userInfo = [[NSString alloc] init];
                  NSMutableArray *friendNames = [[NSMutableArray alloc] init];
                  for (int i =0; i <[_fbDController.friendsList count]; i++){ 
                      [friendNames addObject:[[_fbDController.friendsList objectAtIndex:i] name]];
@@ -48,13 +48,16 @@
                  userInfo = [userInfo
                              stringByAppendingString:
                              [NSString stringWithFormat:@"friendNames: %@\n\n",
-                              friendNames]];            //add friendNames object to userInfo.
+                              friendNames]];            //add friendNames object to userInfo.*/
+                 //[self prepareForSegue:<#(UIStoryboardSegue *)#> sender:<#(id)#>]
+                 
                  if([self.activitySpinner isAnimating]){
                      [self.activitySpinner setHidden:YES];
                  }
+                 [self performSegueWithIdentifier:@"playGame1" sender:self];
                  //[self.activitySpinner setHidden:true];
-                 [self.userInfoTextView setHidden:false];
-                 self.userInfoTextView.text = userInfo;
+                 //[self.userInfoTextView setHidden:false];
+                 //self.userInfoTextView.text = userInfo;
              }
          }];
     }

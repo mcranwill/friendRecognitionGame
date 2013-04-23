@@ -30,7 +30,6 @@
 		F3CDEC1116CAB1A900934E00 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0E16CAB1A900934E00 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F3CDEC1216CAB1A900934E00 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CDEC0F16CAB1A900934E00 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F3E40D6316FB5DAD00FBAE84 /* ResultsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E40D6216FB5DAD00FBAE84 /* ResultsObj.m */; };
-		F3FB27151704A59E00D9F970 /* CustTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FB27141704A59E00D9F970 /* CustTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,8 +67,6 @@
 		F3CDEC0F16CAB1A900934E00 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F3E40D6116FB5DAD00FBAE84 /* ResultsObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsObj.h; sourceTree = "<group>"; };
 		F3E40D6216FB5DAD00FBAE84 /* ResultsObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsObj.m; sourceTree = "<group>"; };
-		F3FB27131704A59E00D9F970 /* CustTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustTableViewCell.h; sourceTree = "<group>"; };
-		F3FB27141704A59E00D9F970 /* CustTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +128,6 @@
 				F3B30C5916C2E8360020452A /* FriendRecognitionGameAppDelegate.h */,
 				F3B30C5A16C2E8360020452A /* FriendRecognitionGameAppDelegate.m */,
 				F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */,
-				F3FB27131704A59E00D9F970 /* CustTableViewCell.h */,
-				F3FB27141704A59E00D9F970 /* CustTableViewCell.m */,
 				F354620516DD170800CEB191 /* GameWindowPickerView.h */,
 				F354620616DD170800CEB191 /* GameWindowPickerView.m */,
 				F38E007B16FCEAEA005345B1 /* GameWindow.h */,
@@ -242,7 +237,6 @@
 				F3E40D6316FB5DAD00FBAE84 /* ResultsObj.m in Sources */,
 				F38E007D16FCEAEA005345B1 /* GameWindow.m in Sources */,
 				F38E008016FCF847005345B1 /* SelectionTableViewController.m in Sources */,
-				F3FB27151704A59E00D9F970 /* CustTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

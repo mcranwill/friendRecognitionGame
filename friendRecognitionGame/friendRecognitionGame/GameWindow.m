@@ -19,7 +19,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@",self.childViewControllers.lastObject);
+    //NSLog(@"%@",self.childViewControllers.lastObject);
+    [self setLoading];
+    
+    /*if (FBSession.activeSession.isOpen) {
+        [FBRequestConnection
+         startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection,  //Get the friends list
+                                                  id data,                 //object and identify it as data.
+                                                  NSError *error) {
+             if (!error) {
+                 //Update friends list
+                 _fbDController.friendsList = (NSArray*)[data data];
+                 
+                 /*NSLog(@"friends list was loaded.");
+                 //Prints out friends List to a UITextView
+                 NSString *userInfo = [[NSString alloc] init];
+                 NSMutableArray *friendNames = [[NSMutableArray alloc] init];
+                 for (int i =0; i <[_fbDController.friendsList count]; i++){
+                     [friendNames addObject:[[_fbDController.friendsList objectAtIndex:i] name]];
+                 }
+                 
+                 [self setDoneLoading];
+                 //Code to reveal the friends object.
+                 /*userInfo = [userInfo
+                             stringByAppendingString:
+                             [NSString stringWithFormat:@"friendNames: %@\n\n",
+                              friendNames]];            //add friendNames object to userInfo.
+                 if([self.activitySpinner isAnimating]){
+                     [self.activitySpinner setHidden:YES];
+                 }
+                 //[self.activitySpinner setHidden:true];
+                 [self.userInfoTextView setHidden:false];
+                 self.userInfoTextView.text = userInfo;
+             }
+         }];
+    }*/
+    
+    
     [self.childViewControllers.lastObject setGameWithOptions];
     [self setImage];
     //self.arrayOptions = [[NSMutableArray alloc] init];
@@ -71,8 +107,12 @@
 }
 
 - (IBAction)submitTProcessing:(id)sender {
-    
-    NSMutableString *msg = [[NSMutableString alloc] init];
+    //a logout function.
+    [FBSession.activeSession closeAndClearTokenInformation];
+}
+
+    //Code to perform submission.
+    /*NSMutableString *msg = [[NSMutableString alloc] init];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     
     NSIndexPath *ip = [[self.childViewControllers.lastObject tableView] indexPathForSelectedRow];
@@ -100,8 +140,8 @@
     
     
     [self.childViewControllers.lastObject setGameWithOptions];
-    [self setImage];
-}
+    [self setImage];*/
+
 
 - (IBAction)receiveNewGame:(id)sender {
     [self setLoading];
@@ -134,6 +174,15 @@
     [self.profilePicView setHidden:false];
     [[self.childViewControllers.lastObject tableView] setHidden:false];
     //[self.selectionPicker setHidden:false];
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    NSLog(@"Entering Background");
+    [self.fbDController writeResultsToFile];
+}
+
+- (IBAction)performLogout:(id)sender {
+    [FBSession.activeSession closeAndClearTokenInformation];
 }
  
 @end
