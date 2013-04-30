@@ -35,14 +35,16 @@ NSString *const FBSessionStateChangedNotification =
     */
     //self.loginController = [[FRGLoginViewController alloc] i
     //NSLog(@"In the initial call");
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){ //See if we have a valid token for the current state.
+   /* if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){ //See if we have a valid token for the current state.
         //show logged in view
-        [self openSession];
+        [self openSession:false //:^(id result, NSError *err) {
+            //
+        ];
         //NSLog(@"we have a valid token");
     }else{
         //no display the login page.
         [self showLoginView];
-    }
+    }*/
     return YES;
 }
 
@@ -136,6 +138,10 @@ NSString *const FBSessionStateChangedNotification =
             break;
     }
     
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:FBSessionStateChangedNotification
+     object:session];
+    
     if (error) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Error"
@@ -147,7 +153,7 @@ NSString *const FBSessionStateChangedNotification =
     }
 }
 
-- (void)openSession
+- (void) openSession: (BOOL *) allowLoginUX //: (void (^)(id res,NSError *err))completion
 {
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"user_location",
@@ -157,13 +163,12 @@ NSString *const FBSessionStateChangedNotification =
                             @"user_photos",
                             @"friends_photos",
                             nil];
-    [FBSession openActiveSessionWithReadPermissions:permissions
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-     }];
+    [FBSession openActiveSessionWithReadPermissions:permissions allowLoginUI:allowLoginUX
+                                      completionHandler:
+         ^(FBSession *session,
+           FBSessionState state, NSError *error) {
+             [self sessionStateChanged:session state:state error:error];
+         }];
 }
 
 

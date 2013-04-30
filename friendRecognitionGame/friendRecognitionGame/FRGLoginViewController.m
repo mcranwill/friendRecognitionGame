@@ -22,10 +22,27 @@
     [super awakeFromNib];
 }
 
+- (void)sessionStateChanged:(NSNotification*)notification {
+    if (FBSession.activeSession.isOpen) {
+        // If the session is open, cache friend data
+        FBCacheDescriptor *cacheDescriptor = [FBFriendPickerViewController cacheDescriptor];
+        [cacheDescriptor prefetchAndCacheForSession:FBSession.activeSession];
+        
+        // Go to the welcome page by dismissing the modal view controller
+        // instead of using segues.
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(sessionStateChanged:)
+     name:FBSessionStateChangedNotification
+     object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +55,15 @@
     [self.spinner startAnimating];
     
     FriendRecognitionGameAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    @synchronized(self){
-        [appDelegate openSession];
-        [self performSegueWithIdentifier:@"loginSuccess" sender:self];
-    }
+    [appDelegate openSession:true];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)loginFailed
