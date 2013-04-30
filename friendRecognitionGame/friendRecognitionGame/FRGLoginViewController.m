@@ -38,7 +38,10 @@
     [self.spinner startAnimating];
     
     FriendRecognitionGameAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate openSession];
+    @synchronized(self){
+        [appDelegate openSession];
+        [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+    }
     
 }
 

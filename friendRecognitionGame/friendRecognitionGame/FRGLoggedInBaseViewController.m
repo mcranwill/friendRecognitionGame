@@ -25,50 +25,63 @@
     self.fbDController = [[FBDataController alloc] init];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    
+    //[super viewDidAppear:true];
+    if([[FBSession activeSession] isOpen]){
+        NSLog(@"We are in an active session.");
+    }
+    NSLog(@"is something going on?");
+    [FBRequestConnection
+     startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection,  //Get the friends list
+                                              id data,                 //object and identify it as data.
+                                              NSError *error) {
+         if (!error) {
+             //Update friends list
+             NSLog(@"Starting to load friends list");
+             _fbDController.friendsList = (NSArray*)[data data];
+             NSLog(@"I finished.");
+             //Prints out friends List to a UITextView
+             /*NSString *userInfo = [[NSString alloc] init];
+              NSMutableArray *friendNames = [[NSMutableArray alloc] init];
+              for (int i =0; i <[_fbDController.friendsList count]; i++){
+              [friendNames addObject:[[_fbDController.friendsList objectAtIndex:i] name]];
+              }
+              userInfo = [userInfo
+              stringByAppendingString:
+              [NSString stringWithFormat:@"friendNames: %@\n\n",
+              friendNames]];            //add friendNames object to userInfo.*/
+             //[self prepareForSegue:<#(UIStoryboardSegue *)#> sender:<#(id)#>]
+             
+             if([self.activitySpinner isAnimating]){
+                 [self.activitySpinner setHidden:YES];
+             }
+             
+             [self performSegueWithIdentifier:@"playGame1" sender:self];
+             //[self.activitySpinner setHidden:true];
+             //[self.userInfoTextView setHidden:false];
+             //self.userInfoTextView.text = userInfo;
+         } else if (error){
+             NSLog(@" Our error code is %d",[error code]);
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We failed to load your friends list, please try again." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+             [alert show];
+             if([self.activitySpinner isAnimating]){
+                 [self.activitySpinner setHidden:YES];
+             }
+             //[self performSegueWithIdentifier:@"toLogin" sender:self];
+             
+         }
+     }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSLog(@"View loaded. Am I doing anything?");
     //Check to see that user is connected to FB.
-    if (FBSession.activeSession.isOpen) {
-        [FBRequestConnection
-         startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection,  //Get the friends list
-                                                  id data,                 //object and identify it as data.
-                                                  NSError *error) {
-             if (!error) {
-                 //Update friends list
-                 _fbDController.friendsList = (NSArray*)[data data];
-                 
-                 //Prints out friends List to a UITextView
-                 /*NSString *userInfo = [[NSString alloc] init];
-                 NSMutableArray *friendNames = [[NSMutableArray alloc] init];
-                 for (int i =0; i <[_fbDController.friendsList count]; i++){ 
-                     [friendNames addObject:[[_fbDController.friendsList objectAtIndex:i] name]];
-                 }
-                 userInfo = [userInfo
-                             stringByAppendingString:
-                             [NSString stringWithFormat:@"friendNames: %@\n\n",
-                              friendNames]];            //add friendNames object to userInfo.*/
-                 //[self prepareForSegue:<#(UIStoryboardSegue *)#> sender:<#(id)#>]
-                 
-                 if([self.activitySpinner isAnimating]){
-                     [self.activitySpinner setHidden:YES];
-                 }
-                 [self performSegueWithIdentifier:@"playGame1" sender:self];
-                 //[self.activitySpinner setHidden:true];
-                 //[self.userInfoTextView setHidden:false];
-                 //self.userInfoTextView.text = userInfo;
-             } else if (error){
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You were not able to connect to the internet." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-                 [alert show];
-                 if([self.activitySpinner isAnimating]){
-                     [self.activitySpinner setHidden:YES];
-                 }
-                 //[self performSegueWithIdentifier:@"toLogin" sender:self];
-
-             }
-         }];
-    }
+    //if (FBSession.activeSession.isOpen) {
+   
+    //}
     
     UIApplication *app = [UIApplication sharedApplication];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:app];
@@ -108,6 +121,9 @@
     } else if([segue.identifier isEqualToString:@"playGame1"]){
         GameWindow *contr = (GameWindow *) segue.destinationViewController;
         contr.fbDController = _fbDController;
+    } else if([segue.identifier isEqualToString:@"cancelAndLogout"]){
+        //[FBSession.activeSession closeAndClearTokenInformation];
+        //[self ]
     }
 }
 

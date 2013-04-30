@@ -79,6 +79,11 @@
         //FRGgameWindowWithTables *contr = (FRGgameWindowWithTables *) segue.destinationViewController;
         //contr.fbDController = _fbDController;
         // do something with the AlertView's subviews here...
+    }else if([segueName isEqualToString:@"performLogout"]){
+        //NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenInformationKey"]);
+        //[[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenInformationKey"] removeAllObjects];
+        NSLog(@"hello DC");
+        [FBSession.activeSession closeAndClearTokenInformation];
     }
 }
 
@@ -106,10 +111,10 @@
     }];
 }
 
-- (IBAction)submitTProcessing:(id)sender {
+/*- (IBAction)submitTProcessing:(id)sender {
     //a logout function.
     [FBSession.activeSession closeAndClearTokenInformation];
-}
+}*/
 
     //Code to perform submission.
     /*NSMutableString *msg = [[NSMutableString alloc] init];
@@ -184,8 +189,15 @@
     [self.fbDController writeResultsToFile];
 }
 
-- (IBAction)performLogout:(id)sender {
+/*- (IBAction)performLogout:(id)sender {
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenInformationKey"]);
+    NSLog(@"hello DC");
     [FBSession.activeSession closeAndClearTokenInformation];
-}
+    
+    /*for (NSObject *each in [[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenInformationKey"]) {
+        <#statements#>
+    }
+    for (
+}*/
  
 @end

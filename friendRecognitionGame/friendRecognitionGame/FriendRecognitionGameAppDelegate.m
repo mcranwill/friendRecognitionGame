@@ -70,9 +70,10 @@ NSString *const FBSessionStateChangedNotification =
         FRGLoginViewController* loginViewController = self.loginController;
         [topViewController presentViewController:loginViewController animated:NO completion:nil];
     } else {
+        NSLog(@"%@",topViewController);
         NSLog(@"kind of class failed");
-        FRGLoginViewController* loginViewController = (FRGLoginViewController*) topViewController;
-        [loginViewController loginFailed];
+        FRGLoginViewController* loginViController = (FRGLoginViewController*) topViewController;
+        [loginViController loginFailed];
     }
 
 }
@@ -87,8 +88,8 @@ NSString *const FBSessionStateChangedNotification =
     switch (state) {
         case FBSessionStateOpen: {
             //NSLog(@"state is currently open.");
-            /*if (!error) {
-                UIViewController *topViewController = self.window.rootViewController;
+            if (!error) {
+                /*UIViewController *topViewController = self.window.rootViewController;
                 // We have a valid session
                 NSLog(@"User session found");
                 //[curViewController dismissViewControllerAnimated:YES completion:nil];
@@ -106,8 +107,19 @@ NSString *const FBSessionStateChangedNotification =
                 FRGLoggedInBaseViewController* loggedInController = self.loggedInController;
                 [topViewController presentViewController:loggedInController animated:YES completion:nil];
                 
-                //[self reautorizarPermisos:self ];
-            }*/
+                //[self reautorizarPermisos:self ];*/
+                //[self.loginController performSegueWithIdentifier:@"loginSuccess" sender:self.loginController];
+                //loginSuccess
+                //[self.window.rootViewController perfSeg];
+                NSLog(@"User session found");
+                /*FRGLoginViewController* loginViewController = (FRGLoginViewController*) self.window.rootViewController;;
+                [loginViewController performSegueWithIdentifier:@"loginSuccess" sender:loginViewController];
+*/
+                /*if([self.window.rootViewController isKindOfClass:[FRGLoginViewController class]] ){
+                    FRGLoginViewController* loginViController = (FRGLoginViewController*) self.window.rootViewController;*/
+                    //[loginViController perfSeg];
+                //}
+            }
              break;
         }
         case FBSessionStateClosed:{

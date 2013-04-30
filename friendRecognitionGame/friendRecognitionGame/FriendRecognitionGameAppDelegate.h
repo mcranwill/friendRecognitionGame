@@ -18,6 +18,7 @@
 extern NSString *const FBSessionStateChangedNotification;
 @property (strong, nonatomic) FRGLoginViewController *loginController;
 @property (strong, nonatomic) FRGLoggedInBaseViewController *loggedInController;
+//typedef void(^TypeComplitionHandler)(id result)
 - (void) openSession;
 - (void) closeSession;
 
