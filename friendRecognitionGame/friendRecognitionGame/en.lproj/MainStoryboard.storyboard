@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1i-sq-HZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-299" y="883"/>
+            <point key="canvasLocation" x="-515" y="743"/>
         </scene>
         <!--Game Window-->
         <scene sceneID="Wag-HA-Kzf">
@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRG-Cr-C95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="-165"/>
+            <point key="canvasLocation" x="-510" y="-141"/>
         </scene>
         <!--Game Window Picker View-->
         <scene sceneID="o9H-K8-i1X">
@@ -443,8 +443,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="B7p-NO-1aW"/>
+        <segue reference="5qd-3k-shS"/>
         <segue reference="aJj-St-ZRy"/>
-        <segue reference="XK0-Ns-5mN"/>
+        <segue reference="B7p-NO-1aW"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -122,7 +122,7 @@
         GameWindow *contr = (GameWindow *) segue.destinationViewController;
         contr.fbDController = _fbDController;
     } else if([segue.identifier isEqualToString:@"cancelAndLogout"]){
-        //[FBSession.activeSession closeAndClearTokenInformation];
+        [FBSession.activeSession closeAndClearTokenInformation];
         //[self ]
     }
 }

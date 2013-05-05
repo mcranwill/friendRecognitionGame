@@ -12,6 +12,7 @@
 @interface FBDataController : FBGraphObject
 @property (nonatomic, copy) NSArray *friendsList;
 @property (nonatomic) ResultsObj *results;
+@property (nonatomic) NSString *user;
 - (NSInteger) getAttempts;
 - (NSInteger) getSuccesses;
 - (void) incrementSuccesses;
