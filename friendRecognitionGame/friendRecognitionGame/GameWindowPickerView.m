@@ -146,7 +146,7 @@
 }
 
 - (IBAction)getResults:(id)sender {
-    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", [self.fbDController getSuccesses], [self.fbDController getAttempts]];
+    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", [self.fbDController getSessionSuccesses], [self.fbDController getSessionAttempts]];
                   //  @"Successes: %d",;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Past Results" message:msg delegate:nil cancelButtonTitle:@"Finished" otherButtonTitles: nil];
     [alert show];

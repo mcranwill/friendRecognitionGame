@@ -156,17 +156,28 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duW-eo-rv2">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aDE-lR-LqW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29759096530000001" green="0.37097897019999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Yzi-f3-O5l" firstAttribute="leading" secondItem="2iV-f2-AGv" secondAttribute="leading" type="default" id="0E4-Y9-YYy"/>
+                            <constraint firstItem="eJ5-YR-uWT" firstAttribute="top" secondItem="duW-eo-rv2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4J1-gT-FzQ"/>
                             <constraint firstAttribute="bottom" secondItem="UgF-TY-bJs" secondAttribute="bottom" constant="19" id="CSL-WF-oQY"/>
+                            <constraint firstItem="duW-eo-rv2" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="46" id="H15-cT-weV"/>
                             <constraint firstItem="UgF-TY-bJs" firstAttribute="top" secondItem="GA6-Rc-lch" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="M0J-YT-UQR"/>
                             <constraint firstItem="GA6-Rc-lch" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="212" id="PRc-Ih-qcp"/>
-                            <constraint firstItem="eJ5-YR-uWT" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" constant="75" id="PtC-Bn-hQc"/>
                             <constraint firstItem="GA6-Rc-lch" firstAttribute="centerX" secondItem="eJ5-YR-uWT" secondAttribute="centerX" type="default" id="R8h-0f-2le"/>
+                            <constraint firstItem="eJ5-YR-uWT" firstAttribute="centerX" secondItem="duW-eo-rv2" secondAttribute="centerX" type="default" id="a0N-yS-upe"/>
+                            <constraint firstItem="duW-eo-rv2" firstAttribute="leading" secondItem="2iV-f2-AGv" secondAttribute="leading" type="default" id="aMf-zp-RrG"/>
+                            <constraint firstItem="duW-eo-rv2" firstAttribute="trailing" secondItem="2iV-f2-AGv" secondAttribute="trailing" type="default" id="eH3-yc-ikN"/>
                             <constraint firstItem="UgF-TY-bJs" firstAttribute="leading" secondItem="2iV-f2-AGv" secondAttribute="leading" type="default" id="jGY-HH-24F"/>
-                            <constraint firstItem="Yzi-f3-O5l" firstAttribute="centerX" secondItem="eJ5-YR-uWT" secondAttribute="centerX" type="default" id="l8e-to-Bar"/>
                             <constraint firstItem="UgF-TY-bJs" firstAttribute="trailing" secondItem="2iV-f2-AGv" secondAttribute="trailing" type="default" id="oKA-hH-f2x"/>
                             <constraint firstItem="Yzi-f3-O5l" firstAttribute="trailing" secondItem="2iV-f2-AGv" secondAttribute="trailing" type="default" id="rRJ-8g-LxT"/>
                             <constraint firstItem="Yzi-f3-O5l" firstAttribute="top" secondItem="2iV-f2-AGv" secondAttribute="top" type="default" id="vjq-Lp-5tp"/>
@@ -174,6 +185,7 @@
                     </view>
                     <connections>
                         <outlet property="activitySpinnerTab" destination="GA6-Rc-lch" id="zx1-Qz-bHX"/>
+                        <outlet property="loggedInLabel" destination="duW-eo-rv2" id="Dsh-YL-5tl"/>
                         <outlet property="profilePicView" destination="eJ5-YR-uWT" id="HHb-KW-VvF"/>
                     </connections>
                 </viewController>
@@ -247,7 +259,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qc5-u3-x1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="-157"/>
+            <point key="canvasLocation" x="1432" y="691"/>
         </scene>
         <!--Logged In Base View Controller-->
         <scene sceneID="GzD-wq-j0u">
@@ -410,6 +422,7 @@
                 <relationship kind="action" name="receiveNewGame:"/>
                 <relationship kind="action" name="requestResults:"/>
                 <relationship kind="outlet" name="activitySpinnerTab" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="loggedInLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profilePicView" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -444,7 +457,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="5qd-3k-shS"/>
-        <segue reference="aJj-St-ZRy"/>
+        <segue reference="JdN-gC-Bdd"/>
         <segue reference="B7p-NO-1aW"/>
     </inferredMetricsTieBreakers>
 </document>

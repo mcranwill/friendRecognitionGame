@@ -14,6 +14,7 @@
 		F38E007D16FCEAEA005345B1 /* GameWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F38E007C16FCEAEA005345B1 /* GameWindow.m */; };
 		F38E008016FCF847005345B1 /* SelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38E007F16FCF847005345B1 /* SelectionTableViewController.m */; };
 		F3A499B317300F3A000DBFB4 /* Welcome.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A499B217300F3A000DBFB4 /* Welcome.m */; };
+		F3A499B61736DB8B000DBFB4 /* ResultNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A499B51736DB8B000DBFB4 /* ResultNavigation.m */; };
 		F3B30C4B16C2E8360020452A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4A16C2E8360020452A /* UIKit.framework */; };
 		F3B30C4D16C2E8360020452A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4C16C2E8360020452A /* Foundation.framework */; };
 		F3B30C4F16C2E8360020452A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B30C4E16C2E8360020452A /* CoreGraphics.framework */; };
@@ -48,6 +49,8 @@
 		F38E007F16FCF847005345B1 /* SelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionTableViewController.m; sourceTree = "<group>"; };
 		F3A499B117300F3A000DBFB4 /* Welcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome.h; sourceTree = "<group>"; };
 		F3A499B217300F3A000DBFB4 /* Welcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome.m; sourceTree = "<group>"; };
+		F3A499B41736DB8B000DBFB4 /* ResultNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultNavigation.h; sourceTree = "<group>"; };
+		F3A499B51736DB8B000DBFB4 /* ResultNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultNavigation.m; sourceTree = "<group>"; };
 		F3B30C4616C2E8360020452A /* friendRecognitionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = friendRecognitionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B30C4A16C2E8360020452A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3B30C4C16C2E8360020452A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,8 @@
 				F3B30C5916C2E8360020452A /* FriendRecognitionGameAppDelegate.h */,
 				F3B30C5A16C2E8360020452A /* FriendRecognitionGameAppDelegate.m */,
 				F3B30C6216C2E8360020452A /* MainStoryboard.storyboard */,
+				F3A499B41736DB8B000DBFB4 /* ResultNavigation.h */,
+				F3A499B51736DB8B000DBFB4 /* ResultNavigation.m */,
 				F3A499B117300F3A000DBFB4 /* Welcome.h */,
 				F3A499B217300F3A000DBFB4 /* Welcome.m */,
 				F354620516DD170800CEB191 /* GameWindowPickerView.h */,
@@ -243,6 +248,7 @@
 				F38E007D16FCEAEA005345B1 /* GameWindow.m in Sources */,
 				F38E008016FCF847005345B1 /* SelectionTableViewController.m in Sources */,
 				F3A499B317300F3A000DBFB4 /* Welcome.m in Sources */,
+				F3A499B61736DB8B000DBFB4 /* ResultNavigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

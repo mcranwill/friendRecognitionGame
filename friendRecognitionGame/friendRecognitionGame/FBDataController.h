@@ -11,10 +11,12 @@
 
 @interface FBDataController : FBGraphObject
 @property (nonatomic, copy) NSArray *friendsList;
-@property (nonatomic) ResultsObj *results;
+@property (nonatomic) ResultsObj *sessionResults;
+@property (nonatomic) NSInteger *resultsIndex;
+@property (nonatomic) NSMutableArray *allResults;
 @property (nonatomic) NSString *user;
-- (NSInteger) getAttempts;
-- (NSInteger) getSuccesses;
+- (NSInteger) getSessionAttempts;
+- (NSInteger) getSessionSuccesses;
 - (void) incrementSuccesses;
 - (void) incrementAttempts;
 - (NSString*) getRandomFriendName;
@@ -22,4 +24,5 @@
 - (NSString*) lineOpen;
 - (void) addResultObj:(ResultsObj *)res;
 - (void) writeResultsToFile;
+- (void) addResultsForCurrentUser;
 @end

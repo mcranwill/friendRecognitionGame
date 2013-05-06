@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface ResultsObj : NSObject
+
+@property (nonatomic) NSString *userName;
 @property (nonatomic) NSInteger totalAttempts;
 @property (nonatomic) NSInteger totalSuccesses;
 
 //- (id) initWithValue:(NSInteger *) num;
-- (id) initWithValue:(NSInteger *) tot;
+- (id) initWithValue:(NSString *) userName:(NSInteger *) tot;
 - (id)initWithCoder:(NSKeyedUnarchiver *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;
+- (NSInteger) returnAttempts;
+- (NSInteger) returnSuccesses;
 - (void) incrementResultAttempts;
 - (void) incrementResultSuccesses;
 @end

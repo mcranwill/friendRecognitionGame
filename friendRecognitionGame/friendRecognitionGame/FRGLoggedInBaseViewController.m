@@ -22,25 +22,26 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.fbDController = [[FBDataController alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    
-    //[super viewDidAppear:true];
     if([[FBSession activeSession] isOpen]){
-        NSLog(@"We are in an active session.");
-    }
-    NSLog(@"is something going on?");
+    
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if(!error){
+            [self.fbDController setUser:[result name]];
+            [self.fbDController addResultsForCurrentUser];
+        }
+    }];
+        
     [FBRequestConnection
      startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection,  //Get the friends list
-                                              id data,                 //object and identify it as data.
+                                              id friendsList,                 //object and identify it as data.
                                               NSError *error) {
          if (!error) {
              //Update friends list
-             NSLog(@"Starting to load friends list");
-             _fbDController.friendsList = (NSArray*)[data data];
-             NSLog(@"I finished.");
+             _fbDController.friendsList = (NSArray*)[friendsList data];
+             //NSLog(@"%@",friendsList);
              //Prints out friends List to a UITextView
              /*NSString *userInfo = [[NSString alloc] init];
               NSMutableArray *friendNames = [[NSMutableArray alloc] init];
@@ -52,7 +53,7 @@
               [NSString stringWithFormat:@"friendNames: %@\n\n",
               friendNames]];            //add friendNames object to userInfo.*/
              //[self prepareForSegue:<#(UIStoryboardSegue *)#> sender:<#(id)#>]
-             
+            // [[FBSession activeSession]
              if([self.activitySpinner isAnimating]){
                  [self.activitySpinner setHidden:YES];
              }
@@ -71,16 +72,17 @@
              //[self performSegueWithIdentifier:@"toLogin" sender:self];
              
          }
-     }];
+              }];
+         }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"View loaded. Am I doing anything?");
+    //NSLog(@"View loaded. Am I doing anything?");
     //Check to see that user is connected to FB.
     //if (FBSession.activeSession.isOpen) {
-   
+    self.fbDController = [[FBDataController alloc] init];
     //}
     
     UIApplication *app = [UIApplication sharedApplication];
@@ -91,19 +93,26 @@
     // paths[0];
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:@"data.tlist"];
-    
+    NSLog(@"Made it through the file manager stuff.");
     if ([fileManager fileExistsAtPath:archivePath] == YES)
     {
+        NSLog(@"Found the file");
         //Decode
         NSData *data = [NSData dataWithContentsOfFile:archivePath];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         
         NSMutableString *temp = [[NSMutableString alloc] init];
-        [temp appendString:@"key"];
+        [temp appendString:@"key1"];
         while ([unarchiver containsValueForKey:temp]) {
-            ResultsObj *temporaryResultsObj =[[ResultsObj alloc] initWithValue:0];
+            ResultsObj *temporaryResultsObj =[[ResultsObj alloc] initWithValue:[self.fbDController user]:0];
             temporaryResultsObj = [unarchiver decodeObjectForKey:temp];
-            [self.fbDController addResultObj:[unarchiver decodeObjectForKey:temp]];
+            NSLog(@"%@",[temporaryResultsObj userName]);
+            NSLog(@"%@",temporaryResultsObj);
+            if(temporaryResultsObj != nil){
+                [self.fbDController addResultObj:[unarchiver decodeObjectForKey:temp]];
+            }else{
+                NSLog(@"temp object for unarchiving was nil");
+            }
             
             //[[self tableView] ];
             [temp appendString:@"1"];

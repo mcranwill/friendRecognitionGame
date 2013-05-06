@@ -8,6 +8,7 @@
 
 #import "GameWindow.h"
 #import "SelectionTableViewController.h"
+#import "ResultNavigation.h"
 #include <stdlib.h>
 
 @interface GameWindow ()
@@ -21,39 +22,8 @@
     [super viewDidLoad];
     //NSLog(@"%@",self.childViewControllers.lastObject);
     [self setLoading];
-    
-    /*if (FBSession.activeSession.isOpen) {
-        [FBRequestConnection
-         startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection,  //Get the friends list
-                                                  id data,                 //object and identify it as data.
-                                                  NSError *error) {
-             if (!error) {
-                 //Update friends list
-                 _fbDController.friendsList = (NSArray*)[data data];
-                 
-                 /*NSLog(@"friends list was loaded.");
-                 //Prints out friends List to a UITextView
-                 NSString *userInfo = [[NSString alloc] init];
-                 NSMutableArray *friendNames = [[NSMutableArray alloc] init];
-                 for (int i =0; i <[_fbDController.friendsList count]; i++){
-                     [friendNames addObject:[[_fbDController.friendsList objectAtIndex:i] name]];
-                 }
-                 
-                 [self setDoneLoading];
-                 //Code to reveal the friends object.
-                 /*userInfo = [userInfo
-                             stringByAppendingString:
-                             [NSString stringWithFormat:@"friendNames: %@\n\n",
-                              friendNames]];            //add friendNames object to userInfo.
-                 if([self.activitySpinner isAnimating]){
-                     [self.activitySpinner setHidden:YES];
-                 }
-                 //[self.activitySpinner setHidden:true];
-                 [self.userInfoTextView setHidden:false];
-                 self.userInfoTextView.text = userInfo;
-             }
-         }];
-    }*/
+    NSString *logText = [NSString stringWithFormat:@"You are logged in as %@",self.fbDController.user];
+    //[self.loggedInLabel setText:logText];
     
     
     [self.childViewControllers.lastObject setGameWithOptions];
@@ -79,10 +49,11 @@
         //FRGgameWindowWithTables *contr = (FRGgameWindowWithTables *) segue.destinationViewController;
         //contr.fbDController = _fbDController;
         // do something with the AlertView's subviews here...
+    }else if([segueName isEqualToString:@"menu"]){
+        ResultNavigation * menuViewController = (ResultNavigation *) [segue destinationViewController];
     }else if([segueName isEqualToString:@"performLogout"]){
         //NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenInformationKey"]);
         //[[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenInformationKey"] removeAllObjects];
-        NSLog(@"hello DC");
         [FBSession.activeSession closeAndClearTokenInformation];
     }
 }
@@ -158,7 +129,7 @@
 }
 
 - (IBAction)requestResults:(id)sender {
-    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", [self.fbDController getSuccesses], [self.fbDController getAttempts]];
+    NSString *msg = [NSString stringWithFormat:@"Successes: %d \n Total Attempts: %d", [self.fbDController getSessionSuccesses], [self.fbDController getSessionAttempts]];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Past Results" message:msg delegate:nil cancelButtonTitle:@"Finished" otherButtonTitles: nil];
     

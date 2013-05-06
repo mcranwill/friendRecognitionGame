@@ -116,11 +116,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d  and ip is %d",self.lastRow,[indexPath row]);
+    //NSLog(@"%d  and ip is %d",self.lastRow,[indexPath row]);
     
     if(self.lastRow == (NSInteger *)[indexPath row])
     {
-        NSLog(@"was previously selected.");
+       // NSLog(@"was previously selected.");
     //[self.tableView ]
     }else{
     
@@ -152,7 +152,7 @@
         //[views[1] setHidden:true];
     
         
-        NSLog(@"%d", self.lastRow);
+        //NSLog(@"%d", self.lastRow);
     
         self.lastRow = [indexPath row];
     }

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinnerTab;
 - (void) setImage;
 //- (IBAction)submitTProcessing:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *loggedInLabel;
 - (IBAction)receiveNewGame:(id)sender;
 - (IBAction)requestResults:(id)sender;
 - (void) setDoneLoading;
